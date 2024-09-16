@@ -48,13 +48,14 @@
         android:id="@+id/frame2"
         android:layout_width="327dp"
         android:layout_height="160dp"
-        android:layout_marginTop="284dp"
-        android:background="@drawable/whoWeAre_bg"
+        android:background="@drawable/whoweare_bg"
+        app:layout_constraintBottom_toTopOf="@+id/frame3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/frame1">
 
         <ImageButton
+            android:id="@+id/btnWhoWeAre"
             android:layout_width="74dp"
             android:layout_height="74dp"
             android:layout_gravity="center"
@@ -66,6 +67,7 @@
         </ImageButton>
 
         <TextView
+            android:id="@+id/txtWhoWeAre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -83,13 +85,11 @@
         android:id="@+id/frame3"
         android:layout_width="327dp"
         android:layout_height="160dp"
-        android:layout_marginBottom="6dp"
-        android:background="@drawable/ourSchedule_bg"
+        android:layout_marginBottom="60dp"
+        android:background="@drawable/ourschedule_bg"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.905">
+        app:layout_constraintStart_toStartOf="parent">
 
         <ImageButton
             android:layout_width="74dp"
