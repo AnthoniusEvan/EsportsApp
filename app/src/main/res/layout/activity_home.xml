@@ -26,7 +26,9 @@
             android:layout_marginBottom="20dp"
             android:background="@drawable/games"
             android:scaleType="fitCenter"
-            android:src="@drawable/games">
+            android:src="@drawable/games"
+            android:clickable="false"
+            android:focusable="false">
 
         </ImageButton>
 
@@ -38,7 +40,9 @@
             android:fontFamily="@font/montserrat_medium"
             android:text="GAMES WE PLAY"
             android:textColor="@color/white"
-            android:textSize="20dp">
+            android:textSize="20dp"
+            android:clickable="false"
+            android:focusable="false">
 
         </TextView>
 
@@ -52,7 +56,8 @@
         app:layout_constraintBottom_toTopOf="@+id/frame3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frame1">
+        app:layout_constraintTop_toBottomOf="@+id/frame1"
+        >
 
         <ImageButton
             android:id="@+id/btnWhoWeAre"
@@ -62,7 +67,9 @@
             android:layout_marginBottom="20dp"
             android:background="@drawable/whoweare"
             android:scaleType="fitCenter"
-            android:src="@drawable/whoweare">
+            android:src="@drawable/whoweare"
+            android:clickable="false"
+            android:focusable="false">
 
         </ImageButton>
 
@@ -75,7 +82,9 @@
             android:fontFamily="@font/montserrat_medium"
             android:text="WHO WE ARE"
             android:textColor="@color/white"
-            android:textSize="20dp">
+            android:textSize="20dp"
+            android:clickable="false"
+            android:focusable="false">
 
         </TextView>
 
@@ -98,7 +107,9 @@
             android:layout_marginBottom="20dp"
             android:background="@drawable/calendar"
             android:scaleType="fitCenter"
-            android:src="@drawable/calendar">
+            android:src="@drawable/calendar"
+            android:clickable="false"
+            android:focusable="false">
 
         </ImageButton>
 
@@ -110,7 +121,9 @@
             android:fontFamily="@font/montserrat_medium"
             android:text="OUR SCHEDULE"
             android:textColor="@color/white"
-            android:textSize="20dp">
+            android:textSize="20dp"
+            android:clickable="false"
+            android:focusable="false">
 
         </TextView>
 

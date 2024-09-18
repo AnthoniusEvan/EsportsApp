@@ -1,15 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#111827"
     tools:context=".ui.WhoWeAreFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <FrameLayout
+        android:id="@+id/frame1"
+        android:layout_width="345dp"
+        android:layout_height="206dp"
+        android:layout_marginTop="44dp"
+        android:background="@drawable/img_whoweare"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <include
-        layout="@layout/activity_who_we_are"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+    </FrameLayout>
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/montserrat_bold_italic"
+        android:text="Eclipse Vanguard"
+        android:textColor="@color/white"
+        android:textSize="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frame1" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="345dp"
+        android:layout_height="186dp"
+        android:layout_marginTop="24dp"
+        android:text="Eclipse Vanguard is a dynamic and cutting-edge esports team known for its fearless approach and strategic prowess. Named after the rare and awe-inspiring solar eclipse, the team symbolizes a moment of complete dominance and brilliance on the gaming stage. 'Vanguard' reflects their leadership in pushing the boundaries of competitive play, always ahead of the curve and setting new standards in their chosen games. With a diverse roster of talented players, Eclipse Vanguard excels in adaptability, teamwork, and innovation, consistently striving for excellence in every tournament they enter."
+        android:textAlignment="viewStart"
+        android:textColor="@color/white"
+        android:textSize="13dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.514"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2">
+
+    </TextView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnLike"
+        style="@style/Widget.Material3.Button.IconButton.Outlined"
+        android:layout_width="81dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="80dp"
+        android:fontFamily="@font/montserrat_semibold"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:text="0"
+        android:textAlignment="textEnd"
+        android:textColor="@color/primary_red"
+        android:textColorLink="#F60000"
+        android:textSize="15dp"
+        app:backgroundTint="@null"
+        app:icon="@drawable/like_icon"
+        app:iconTint="@color/primary_red"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.901"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:layout_constraintVertical_bias="0.0"
+        app:strokeColor="@color/primary_red">
+
+    </com.google.android.material.button.MaterialButton>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

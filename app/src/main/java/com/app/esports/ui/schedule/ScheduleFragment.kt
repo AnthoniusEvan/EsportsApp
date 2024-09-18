@@ -7,6 +7,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.app.esports.R
 import com.app.esports.databinding.FragmentScheduleBinding
 
 class ScheduleFragment : Fragment() {
@@ -34,7 +37,13 @@ class ScheduleFragment : Fragment() {
 //        }
         return root
     }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
+        binding.recSchedule.layoutManager = LinearLayoutManager(this.context)
+        binding.recSchedule.setHasFixedSize(true)
+        binding.recSchedule.adapter = ScheduleAdapter()
+    }
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

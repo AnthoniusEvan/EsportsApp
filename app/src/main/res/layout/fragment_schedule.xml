@@ -7,243 +7,243 @@
     android:background="#111827"
     tools:context=".ui.schedule.ScheduleFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/event1"
-        android:layout_width="362dp"
-        android:layout_height="125dp"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/round_edges"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--        android:id="@+id/event1"-->
+<!--        android:layout_width="362dp"-->
+<!--        android:layout_height="125dp"-->
+<!--        android:layout_marginTop="24dp"-->
+<!--        android:background="@drawable/round_edges"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent">-->
 
-        <ImageView
-            android:id="@+id/poster1"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:layout_marginStart="16dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/poster_schedule_1"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+<!--        <ImageView-->
+<!--            android:id="@+id/poster1"-->
+<!--            android:layout_width="90dp"-->
+<!--            android:layout_height="90dp"-->
+<!--            android:layout_marginStart="16dp"-->
+<!--            android:scaleType="centerCrop"-->
+<!--            android:src="@drawable/poster_schedule_1"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
 
-        <TextView
-            android:id="@+id/txtEventName1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:fontFamily="@font/montserrat_medium"
-            android:text="Regional Qualifier - Valorant"
-            android:textColor="#FFFFFF"
-            app:layout_constraintStart_toEndOf="@+id/poster1"
-            app:layout_constraintTop_toBottomOf="@+id/txtDate1" />
+<!--        <TextView-->
+<!--            android:id="@+id/txtEventName1"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="16dp"-->
+<!--            android:fontFamily="@font/montserrat_medium"-->
+<!--            android:text="Regional Qualifier - Valorant"-->
+<!--            android:textColor="#FFFFFF"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/poster1"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/txtDate1" />-->
 
-        <TextView
-            android:id="@+id/txtDate1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:fontFamily="@font/montserrat_bold"
-            android:text="20 SEP"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp"
-            app:layout_constraintStart_toEndOf="@+id/poster1"
-            app:layout_constraintTop_toTopOf="parent" />
+<!--        <TextView-->
+<!--            android:id="@+id/txtDate1"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="16dp"-->
+<!--            android:layout_marginTop="16dp"-->
+<!--            android:fontFamily="@font/montserrat_bold"-->
+<!--            android:text="20 SEP"-->
+<!--            android:textColor="#FFFFFF"-->
+<!--            android:textSize="20sp"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/poster1"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
 
-        <TextView
-            android:id="@+id/txtTeam1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:fontFamily="@font/montserrat_light"
-            android:text="Played by Void Runners"
-            android:textColor="#FFFFFF"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/poster1"
-            app:layout_constraintTop_toBottomOf="@+id/txtEventName1" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/event2"
-        android:layout_width="362dp"
-        android:layout_height="125dp"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/round_edges"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.489"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/event1">
-
-        <ImageView
-            android:id="@+id/poster2"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:layout_marginStart="16dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/poster_schedule_2"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/txtEventName2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:fontFamily="@font/montserrat_medium"
-            android:text="Regional Qualifier - Valorant"
-            android:textColor="#FFFFFF"
-            app:layout_constraintStart_toEndOf="@+id/poster2"
-            app:layout_constraintTop_toBottomOf="@+id/txtDate2" />
-
-        <TextView
-            android:id="@+id/txtDate2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:fontFamily="@font/montserrat_bold"
-            android:text="25 SEP"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp"
-            app:layout_constraintStart_toEndOf="@+id/poster2"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/txtTeam2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:fontFamily="@font/montserrat_light"
-            android:text="Played by Void Runners"
-            android:textColor="#FFFFFF"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/poster2"
-            app:layout_constraintTop_toBottomOf="@+id/txtEventName2" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+<!--        <TextView-->
+<!--            android:id="@+id/txtTeam1"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="16dp"-->
+<!--            android:fontFamily="@font/montserrat_light"-->
+<!--            android:text="Played by Void Runners"-->
+<!--            android:textColor="#FFFFFF"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/poster1"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/txtEventName1" />-->
+<!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
 
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/event3"
-        android:layout_width="362dp"
-        android:layout_height="125dp"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/round_edges"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.489"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/event2">
+<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--        android:id="@+id/event2"-->
+<!--        android:layout_width="362dp"-->
+<!--        android:layout_height="125dp"-->
+<!--        android:layout_marginTop="24dp"-->
+<!--        android:background="@drawable/round_edges"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.489"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/event1">-->
 
-        <ImageView
-            android:id="@+id/poster3"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:layout_marginStart="16dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/poster_schedule_3"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+<!--        <ImageView-->
+<!--            android:id="@+id/poster2"-->
+<!--            android:layout_width="90dp"-->
+<!--            android:layout_height="90dp"-->
+<!--            android:layout_marginStart="16dp"-->
+<!--            android:scaleType="centerCrop"-->
+<!--            android:src="@drawable/poster_schedule_2"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
 
-        <TextView
-            android:id="@+id/txtEventName3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:fontFamily="@font/montserrat_medium"
-            android:text="Regional Qualifier - Valorant"
-            android:textColor="#FFFFFF"
-            app:layout_constraintStart_toEndOf="@+id/poster3"
-            app:layout_constraintTop_toBottomOf="@+id/txtDate3" />
+<!--        <TextView-->
+<!--            android:id="@+id/txtEventName2"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="16dp"-->
+<!--            android:fontFamily="@font/montserrat_medium"-->
+<!--            android:text="Regional Qualifier - Valorant"-->
+<!--            android:textColor="#FFFFFF"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/poster2"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/txtDate2" />-->
 
-        <TextView
-            android:id="@+id/txtDate3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:fontFamily="@font/montserrat_bold"
-            android:text="9 OCT"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp"
-            app:layout_constraintStart_toEndOf="@+id/poster3"
-            app:layout_constraintTop_toTopOf="parent" />
+<!--        <TextView-->
+<!--            android:id="@+id/txtDate2"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="16dp"-->
+<!--            android:layout_marginTop="16dp"-->
+<!--            android:fontFamily="@font/montserrat_bold"-->
+<!--            android:text="25 SEP"-->
+<!--            android:textColor="#FFFFFF"-->
+<!--            android:textSize="20sp"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/poster2"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
 
-        <TextView
-            android:id="@+id/txtTeam3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:fontFamily="@font/montserrat_light"
-            android:text="Played by Void Runners"
-            android:textColor="#FFFFFF"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/poster3"
-            app:layout_constraintTop_toBottomOf="@+id/txtEventName3" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+<!--        <TextView-->
+<!--            android:id="@+id/txtTeam2"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="16dp"-->
+<!--            android:fontFamily="@font/montserrat_light"-->
+<!--            android:text="Played by Void Runners"-->
+<!--            android:textColor="#FFFFFF"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/poster2"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/txtEventName2" />-->
+<!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
 
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/event4"
-        android:layout_width="362dp"
-        android:layout_height="125dp"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/round_edges"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.489"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/event3">
+<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--        android:id="@+id/event3"-->
+<!--        android:layout_width="362dp"-->
+<!--        android:layout_height="125dp"-->
+<!--        android:layout_marginTop="24dp"-->
+<!--        android:background="@drawable/round_edges"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.489"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/event2">-->
 
-        <ImageView
-            android:id="@+id/poster4"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:layout_marginStart="16dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/poster_schedule_4"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+<!--        <ImageView-->
+<!--            android:id="@+id/poster3"-->
+<!--            android:layout_width="90dp"-->
+<!--            android:layout_height="90dp"-->
+<!--            android:layout_marginStart="16dp"-->
+<!--            android:scaleType="centerCrop"-->
+<!--            android:src="@drawable/poster_schedule_3"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
 
-        <TextView
-            android:id="@+id/txtEventName4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:fontFamily="@font/montserrat_medium"
-            android:text="Regional Qualifier - Valorant"
-            android:textColor="#FFFFFF"
-            app:layout_constraintStart_toEndOf="@+id/poster4"
-            app:layout_constraintTop_toBottomOf="@+id/txtDate4" />
+<!--        <TextView-->
+<!--            android:id="@+id/txtEventName3"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="16dp"-->
+<!--            android:fontFamily="@font/montserrat_medium"-->
+<!--            android:text="Regional Qualifier - Valorant"-->
+<!--            android:textColor="#FFFFFF"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/poster3"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/txtDate3" />-->
 
-        <TextView
-            android:id="@+id/txtDate4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:fontFamily="@font/montserrat_bold"
-            android:text="16 OCT"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp"
-            app:layout_constraintStart_toEndOf="@+id/poster4"
-            app:layout_constraintTop_toTopOf="parent" />
+<!--        <TextView-->
+<!--            android:id="@+id/txtDate3"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="16dp"-->
+<!--            android:layout_marginTop="16dp"-->
+<!--            android:fontFamily="@font/montserrat_bold"-->
+<!--            android:text="9 OCT"-->
+<!--            android:textColor="#FFFFFF"-->
+<!--            android:textSize="20sp"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/poster3"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
 
-        <TextView
-            android:id="@+id/txtTeam4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:fontFamily="@font/montserrat_light"
-            android:text="Played by Void Runners"
-            android:textColor="#FFFFFF"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/poster4"
-            app:layout_constraintTop_toBottomOf="@+id/txtEventName4" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+<!--        <TextView-->
+<!--            android:id="@+id/txtTeam3"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="16dp"-->
+<!--            android:fontFamily="@font/montserrat_light"-->
+<!--            android:text="Played by Void Runners"-->
+<!--            android:textColor="#FFFFFF"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/poster3"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/txtEventName3" />-->
+<!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+
+<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--        android:id="@+id/event4"-->
+<!--        android:layout_width="362dp"-->
+<!--        android:layout_height="125dp"-->
+<!--        android:layout_marginTop="24dp"-->
+<!--        android:background="@drawable/round_edges"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.489"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/event3">-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/poster4"-->
+<!--            android:layout_width="90dp"-->
+<!--            android:layout_height="90dp"-->
+<!--            android:layout_marginStart="16dp"-->
+<!--            android:scaleType="centerCrop"-->
+<!--            android:src="@drawable/poster_schedule_4"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/txtEventName4"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="16dp"-->
+<!--            android:fontFamily="@font/montserrat_medium"-->
+<!--            android:text="Regional Qualifier - Valorant"-->
+<!--            android:textColor="#FFFFFF"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/poster4"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/txtDate4" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/txtDate4"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="16dp"-->
+<!--            android:layout_marginTop="16dp"-->
+<!--            android:fontFamily="@font/montserrat_bold"-->
+<!--            android:text="16 OCT"-->
+<!--            android:textColor="#FFFFFF"-->
+<!--            android:textSize="20sp"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/poster4"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/txtTeam4"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="16dp"-->
+<!--            android:fontFamily="@font/montserrat_light"-->
+<!--            android:text="Played by Void Runners"-->
+<!--            android:textColor="#FFFFFF"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/poster4"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/txtEventName4" />-->
+<!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
 
 <!--    <androidx.constraintlayout.widget.ConstraintLayout-->
 <!--        android:id="@+id/event5"-->
@@ -303,4 +303,16 @@
 <!--            app:layout_constraintStart_toEndOf="@+id/poster5"-->
 <!--            app:layout_constraintTop_toBottomOf="@+id/txtEventName5" />-->
 <!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recSchedule"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

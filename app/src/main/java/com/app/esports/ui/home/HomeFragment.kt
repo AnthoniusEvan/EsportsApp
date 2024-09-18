@@ -40,6 +40,9 @@ class HomeFragment : Fragment() {
         binding.includedLayout.frame2.setOnClickListener {
             findNavController().navigate(R.id.nav_whoweare)
         }
+        binding.includedLayout.frame3.setOnClickListener {
+            findNavController().navigate(R.id.nav_schedule)
+        }
     }
 
     override fun onDestroyView() {
