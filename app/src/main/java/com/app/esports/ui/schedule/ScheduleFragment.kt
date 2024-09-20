@@ -5,14 +5,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.app.esports.R
+import com.app.esports.StaticData
 import com.app.esports.databinding.FragmentScheduleBinding
 
-class ScheduleFragment : Fragment() {
+class ScheduleFragment : Fragment(), ScheduleAdapter.OnItemClickListener {
 
     private var _binding: FragmentScheduleBinding? = null
 
@@ -42,10 +45,25 @@ class ScheduleFragment : Fragment() {
 
         binding.recSchedule.layoutManager = LinearLayoutManager(this.context)
         binding.recSchedule.setHasFixedSize(true)
-        binding.recSchedule.adapter = ScheduleAdapter()
+        binding.recSchedule.adapter = ScheduleAdapter(this)
+
     }
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onItemClick(position: Int) {
+        val bundle = Bundle()
+        bundle.putSerializable(EVENT, StaticData.schedules[position])
+
+        val targetFragment = ScheduleDetailFragment()
+        targetFragment.arguments = bundle
+
+        findNavController().navigate(R.id.nav_schedule_detail, bundle)
+    }
+
+    companion object{
+        val EVENT="event_schedule"
     }
 }

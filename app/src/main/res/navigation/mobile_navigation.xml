@@ -28,4 +28,10 @@
         android:name="com.app.esports.ui.WhoWeAreFragment"
         android:label="@string/menu_whoweare"
         tools:layout="@layout/fragment_who_we_are" />
+
+    <fragment
+        android:id="@+id/nav_schedule_detail"
+        android:name="com.app.esports.ui.schedule.ScheduleDetailFragment"
+            android:label="E-SPORTS"
+        tools:layout="@layout/fragment_schedule_detail" />
 </navigation>
