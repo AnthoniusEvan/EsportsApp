@@ -1,0 +1,69 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary_bg"
+    tools:context=".achievment">
+
+    <FrameLayout
+        android:id="@+id/frame1"
+        android:layout_width="355dp"
+        android:layout_height="206dp"
+        android:layout_marginTop="44dp"
+        android:background="@drawable/valorant"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="366dp"
+        android:layout_height="69dp"
+        android:layout_margin="16dp"
+        android:hint="@string/select"
+        app:boxStrokeColor="@android:color/white"
+        app:hintTextColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frame1">
+
+
+        <AutoCompleteTextView
+            android:layout_width="match_parent"
+            android:layout_height="53dp"
+            android:background="@color/white"
+            android:backgroundTint="@null"
+            android:drawableTint="@android:color/white"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <TextView
+        android:id="@+id/achievement_list"
+        android:layout_width="355dp"
+        android:layout_height="155dp"
+        android:layout_marginTop="20dp"
+        android:text="1. Champions of the Regional Valorant Showdown (2023) - Team A\n2. Best Defensive Team Award (2024) - Team A\n3. MVP of the Season (2023) - Team B\n4. Flawless Victory at the Spring Valorant Cup (2022) - Team A\n5. Top 4 Finish in the International Valorant Championship (2023) - Team C"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/valorant_heading"
+        app:layout_constraintVertical_bias="0.016" />
+
+    <TextView
+        android:id="@+id/valorant_heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="300dp"
+        android:text="Valorant"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.083"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/frame1" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
