@@ -17,33 +17,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-        android:layout_width="366dp"
-        android:layout_height="69dp"
-        android:layout_margin="16dp"
-        android:hint="@string/select"
-        app:boxStrokeColor="@android:color/white"
-        app:hintTextColor="@android:color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frame1">
-
-
-        <AutoCompleteTextView
-            android:id="@+id/autoCompleteTextView"
-            android:layout_width="match_parent"
-            android:layout_height="53dp"
-            android:background="@color/white"
-            android:backgroundTint="@null"
-            android:drawableTint="@android:color/white"
-            android:textColor="@android:color/white"
-            android:textColorHint="@android:color/white" />
-    </com.google.android.material.textfield.TextInputLayout>
     <TextView
         android:id="@+id/achievement_list"
         android:layout_width="355dp"
-        android:layout_height="155dp"
+        android:layout_height="211dp"
         android:layout_marginTop="20dp"
         android:text="1. Champions of the Regional Valorant Showdown (2023) - Team A\n2. Best Defensive Team Award (2024) - Team A\n3. MVP of the Season (2023) - Team B\n4. Flawless Victory at the Spring Valorant Cup (2022) - Team A\n5. Top 4 Finish in the International Valorant Championship (2023) - Team C"
         android:textColor="@android:color/white"
@@ -58,14 +35,36 @@
         android:id="@+id/valorant_heading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="28dp"
         android:text="Valorant"
         android:textColor="@android:color/white"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.083"
+        app:layout_constraintHorizontal_bias="0.077"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/frame1"
-    />
+        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="351dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="12dp"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.466"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Select Years"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.079"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frame1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

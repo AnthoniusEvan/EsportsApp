@@ -1,13 +1,13 @@
 package com.app.esports
 
 import android.os.Bundle
+import android.text.Html
+import android.view.View
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.AutoCompleteTextView
+import android.widget.Spinner
 import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
 class achievment : AppCompatActivity() {
 
@@ -15,27 +15,38 @@ class achievment : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_achievment)
 
-        enableEdgeToEdge()
+        val years = arrayOf("All", "2018", "2019", "2020", "2021", "2022", "2023", "2024")
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, years)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+        val spinner = findViewById<Spinner>(R.id.spinner)
+        spinner.adapter = adapter
 
-        val autoCompleteTextView = findViewById<AutoCompleteTextView>(R.id.autoCompleteTextView)
         val achievementListTextView = findViewById<TextView>(R.id.achievement_list)
 
-        val years = StaticData.achievements.keys.toTypedArray()
-        val adapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, years)
+        // Correct implementation of OnItemSelectedListener
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
+                val selectedYear = parent.getItemAtPosition(position).toString()
 
-        autoCompleteTextView.setAdapter(adapter)
+                val achievements = if (selectedYear == "All") {
+                    StaticData.achievements["Valorant"]?.flatMap { it.value.toList()}?.toTypedArray()
+                } else {
+                    StaticData.achievements["Valorant"]?.get(selectedYear)
+                }
 
-        autoCompleteTextView.setOnItemClickListener { _, _, position, _ ->
-            val selectedYear = years[position]
-            val achievements = StaticData.achievements[selectedYear]
-            
-            achievementListTextView.text = achievements?.joinToString("\n") ?: "No achievements found for $selectedYear"
+                achievementListTextView.text = achievements?.joinToString("\n") ?: "No achievements found for $selectedYear"
+                val orderedList = achievements?.mapIndexed { index, achievement ->
+                    "${index + 1}. $achievement"
+                }?.joinToString("<br>")
+
+                achievementListTextView.text = Html.fromHtml(orderedList.toString(), Html.FROM_HTML_MODE_LEGACY)
+
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>) {
+                // Handle case when no year is selected if needed
+            }
         }
     }
 }
