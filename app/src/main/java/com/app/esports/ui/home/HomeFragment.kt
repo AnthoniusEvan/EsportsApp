@@ -37,6 +37,9 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         // Access the button in the included layout using ViewBinding
+        binding.includedLayout.frame1.setOnClickListener{
+            findNavController().navigate(R.id.nav_whatweplay)
+        }
         binding.includedLayout.frame2.setOnClickListener {
             findNavController().navigate(R.id.nav_whoweare)
         }

@@ -34,4 +34,9 @@
         android:name="com.app.esports.ui.schedule.ScheduleDetailFragment"
             android:label="E-SPORTS"
         tools:layout="@layout/fragment_schedule_detail" />
+    <fragment
+        android:id="@+id/nav_whatweplay"
+        android:name="com.app.esports.ui.WhatWePlayFragment"
+        android:label="E-SPORTS"
+        tools:layout="@layout/fragment_whatweplay" />
 </navigation>
