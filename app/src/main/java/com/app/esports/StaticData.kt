@@ -1,6 +1,7 @@
 package com.app.esports
 
 import com.app.esports.ui.schedule.Schedule
+import com.app.esports.ui.teams.Player
 
 object StaticData {
     var schedules: Array<Schedule> = arrayOf(
@@ -170,5 +171,36 @@ object StaticData {
                 "Champions of the Winter Elite Invitational",
                 "Top 4 finish in the International Masters Series",)
         )
+    )
+
+    var teams = mapOf(
+        "Valorant" to mapOf(
+            "Sentinels" to arrayOf(Player("TenZ", "Duelist"), Player("ShahZaM", "In-Game Leader"), Player("SicK", "Flex"), Player("dapr", "Sentinel"), Player("zombs", "Controller")),
+            "Team Liquid" to arrayOf(Player("ScreaM", "Duelist"), Player("Jamppi", "Operator"), Player("L1NK", "Controller"), Player("soulcas", "Flex"), Player("Kryptix", "Sentinel")),
+            "Fnatic" to arrayOf(Player("Boaster", "In-Game Leader"), Player("Derke", "Duelist"), Player("Doma", "Flex"), Player("Mistic", "Controller"), Player("Magnum", "Sentinel")),
+            "100 Thieves" to arrayOf(Player("Asuna", "Duelist"), Player("Hiko", "Sentinel"), Player("Ethan", "Flex"), Player("nitr0", "In-Game Leader"), Player("Steel", "Controller")),
+            "Vision Strikers" to arrayOf(Player("BuZz", "Duelist"), Player("stax", "In-Game Leader"), Player("Rb", "Flex"), Player("MaKo", "Controller"), Player("Zest", "Sentinel"))
+        ),
+        "Mobile Legends" to mapOf(
+            "Blacklist International" to arrayOf(Player("OhMyV33nus", "Support"), Player("Wise", "Jungler"), Player("Edward", "Offlane"), Player("OHEB", "Gold Lane"), Player("Hadji", "Mid Lane")),
+            "RRQ Hoshi" to arrayOf(Player("Alberttt", "Jungler"), Player("Lemon", "Offlane"), Player("Vyn", "Tank"), Player("R7", "Offlane"), Player("Skylar", "Gold Lane")),
+            "ONIC Esports" to arrayOf(Player("Drian", "Mid Lane"), Player("Butsss", "Offlane"), Player("Sanz", "Jungler"), Player("Kiboy", "Support"), Player("CW", "Gold Lane")),
+            "Evos Legends" to arrayOf(Player("Antimage", "Offlane"), Player("Ferxiic", "Jungler"), Player("Clover", "Gold Lane"), Player("Rexxy", "Mid Lane"), Player("Luminaire", "Support")),
+            "Bren Esports" to arrayOf(Player("KarlTzy", "Jungler"), Player("Flaptzy", "Offlane"), Player("Ribo", "Gold Lane"), Player("Lusty", "Tank"), Player("Pheww", "Support"))
+        ),
+        "CS:GO" to mapOf(
+            "NAVI" to arrayOf(Player("s1mple", "AWPer"), Player("electroNic", "Rifler"), Player("Boombl4", "In-Game Leader"), Player("Perfecto", "Support"), Player("B1T", "Rifler")),
+            "FaZe Clan" to arrayOf(Player("rain", "Rifler"), Player("karrigan", "In-Game Leader"), Player("broky", "AWPer"), Player("Twistzz", "Rifler"), Player("ropz", "Lurker")),
+            "Astralis" to arrayOf(Player("gla1ve", "In-Game Leader"), Player("Xyp9x", "Support"), Player("blameF", "Rifler"), Player("dev1ce", "AWPer"), Player("Buzz", "Rifler")),
+            "Vitality" to arrayOf(Player("ZywOo", "AWPer"), Player("apEX", "In-Game Leader"), Player("dupreeh", "Rifler"), Player("Magisk", "Rifler"), Player("Spinx", "Rifler")),
+            "Cloud9" to arrayOf(Player("HObbit", "Lurker"), Player("Ax1Le", "Rifler"), Player("sh1ro", "AWPer"), Player("nafany", "In-Game Leader"), Player("buster", "Rifler"))
+        ),
+        "PUBG" to mapOf(
+            "Team Liquid" to arrayOf(Player("Jeemzz", "Fragger"), Player("Ibiza", "Support"), Player("Sambty", "Scout"), Player("Clib", "In-Game Leader")),
+            "FaZe Clan" to arrayOf(Player("Fuzzface", "In-Game Leader"), Player("Aitzy", "Scout"), Player("Gustav", "Fragger"), Player("UBAH", "Support")),
+            "TSM" to arrayOf(Player("Vard", "Scout"), Player("MiracU", "Support"), Player("Fexx", "Fragger"), Player("iBiza", "In-Game Leader")),
+            "NAVI" to arrayOf(Player("Kemba", "Fragger"), Player("Mellman", "In-Game Leader"), Player("ALYO", "Support"), Player("xmpl", "Scout")),
+            "Gen.G" to arrayOf(Player("Pio", "Fragger"), Player("Inonix", "Support"), Player("Esther", "In-Game Leader"), Player("Asura", "Scout"))
+        ),
     )
 }

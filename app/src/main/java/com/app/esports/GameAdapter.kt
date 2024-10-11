@@ -1,14 +1,22 @@
 package com.game.esports
 
 import android.content.Intent
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.NavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.app.esports.StaticData
 import com.app.esports.AchievementActivity
+import com.app.esports.R
 import com.app.esports.databinding.GameCardBinding
+import com.app.esports.ui.schedule.ScheduleDetailFragment
+import com.app.esports.ui.schedule.ScheduleFragment.Companion.EVENT
+import com.app.esports.ui.teams.TeamsFragment
+import androidx.navigation.fragment.findNavController
 
-class GameAdapter():RecyclerView.Adapter<GameAdapter.GameViewHolder>() {
+class GameAdapter(private val navController: NavController):RecyclerView.Adapter<GameAdapter.GameViewHolder>() {
     class GameViewHolder(val binding:GameCardBinding):RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GameViewHolder {
@@ -21,7 +29,15 @@ class GameAdapter():RecyclerView.Adapter<GameAdapter.GameViewHolder>() {
         holder.binding.imgGame.setImageResource(StaticData.games[position].imageId)
 
         holder.binding.btnTeams.setOnClickListener{
+            val bundle = Bundle()
+            val entryList = StaticData.teams.entries.toList()
 
+            bundle.putSerializable(GAME, entryList[position].key)
+
+            val targetFragment = TeamsFragment()
+            targetFragment.arguments = bundle
+
+            navController.navigate(R.id.nav_teams, bundle)
         }
 
         holder.binding.btnAchievement.setOnClickListener{

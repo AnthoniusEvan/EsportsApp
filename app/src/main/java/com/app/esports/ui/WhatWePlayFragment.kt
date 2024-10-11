@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.app.esports.R
 import com.app.esports.databinding.FragmentWhatweplayBinding
@@ -45,7 +46,7 @@ class WhatWePlayFragment : Fragment() {
 
         binding.recView.layoutManager = LinearLayoutManager(this.context)
         binding.recView.setHasFixedSize(true)
-        binding.recView.adapter = GameAdapter()
+        binding.recView.adapter = GameAdapter(this.findNavController())
     }
     companion object {
         /**
