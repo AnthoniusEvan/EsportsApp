@@ -1,5 +1,6 @@
 package com.app.esports.ui.teams
 
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.view.ContextThemeWrapper
@@ -14,8 +15,10 @@ import androidx.core.view.setPadding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.app.esports.Game
 import com.app.esports.R
 import com.app.esports.StaticData
+import com.app.esports.TeamDetails
 import com.app.esports.databinding.FragmentTeamsBinding
 import com.app.esports.ui.schedule.Schedule
 import com.app.esports.ui.schedule.ScheduleAdapter
@@ -56,33 +59,43 @@ class TeamsFragment : Fragment() {
 
         val teams = StaticData.teams[team]?.keys?.toList() ?: emptyList()
 
-        for (game in StaticData.games){
-            if (game.title == team){
+        for (game in StaticData.games) {
+            if (game.title == team) {
+                val gameName = game.title
+                val gameImageId = game.imageId
                 binding.imgGame.setBackgroundResource(game.imageId)
+
+                for (t in teams) {
+                    val button = MaterialButton(ContextThemeWrapper(this.context, R.style.ButtonTeam)).apply {
+                        layoutParams = LinearLayout.LayoutParams(
+                            LinearLayout.LayoutParams.MATCH_PARENT,
+                            LinearLayout.LayoutParams.WRAP_CONTENT,
+                        ).apply {
+                            setMargins(0, 0, 0, 20)
+                        }
+                        setText(t)
+                        setBackgroundColor(resources.getColor(R.color.primary_bg))
+                        setCornerRadius(42)
+                        setStrokeColorResource(R.color.primary_red)
+                        setPadding(20, 40, 20, 40)
+                    }
+                    button.setOnClickListener {
+                        val teamName = t
+                        val intent = Intent(context, TeamDetails::class.java).apply {
+                            putExtra("GAME_NAME", gameName)
+                            putExtra("GAME_IMAGE_ID", gameImageId)
+                            putExtra("TEAM_NAME", teamName)
+                        }
+                        startActivity(intent)
+                    }
+
+                    binding.teams.addView(button)
+                }
                 break
             }
         }
 
-        for (t in teams) {
-            val button = MaterialButton(ContextThemeWrapper(this.context, R.style.ButtonTeam)).apply {
-                layoutParams = LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.MATCH_PARENT,
-                    LinearLayout.LayoutParams.WRAP_CONTENT,
-                ).apply {
-                    setMargins(0, 0, 0, 20)
-                }
-                setText(t)
-                setBackgroundColor(resources.getColor(R.color.primary_bg))
-                setCornerRadius(42)
-                setStrokeColorResource(R.color.primary_red)
-                setPadding(20,40,20,40)
-            }
-            button.setOnClickListener {
 
-            }
-
-            binding.teams.addView(button)
-        }
 
     }
     override fun onDestroyView() {
