@@ -16,4 +16,7 @@
     <string name="menu_whoweare">Who We Are</string>
 
     <string name="select">Years</string>
+
+    <string name="achievemetn">Achievements</string>
+    <string name="team_detail">Team details</string>
 </resources>
