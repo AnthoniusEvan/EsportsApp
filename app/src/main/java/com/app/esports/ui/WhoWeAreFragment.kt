@@ -78,21 +78,18 @@ class WhoWeAreFragment : Fragment() {
             numOfLikes = sharedPreferences.getInt("LIKE_NUM", 0)
 
             if (isLiked) {
-                numOfLikes--
-                binding.btnLike.setIconResource(R.drawable.like_icon)
-            }
-            else {
+                showUnlikeDialog(numOfLikes, sharedPreferences)
+            } else {
                 numOfLikes++
                 binding.btnLike.setIconResource(R.drawable.like_icon_active)
+                binding.btnLike.text = numOfLikes.toString()
+
+                isLiked = true
+                val editor = sharedPreferences.edit()
+                editor.putBoolean("IS_LIKED", isLiked)
+                editor.putInt("LIKE_NUM", numOfLikes)
+                editor.apply()
             }
-
-            binding.btnLike.text = numOfLikes.toString()
-            isLiked = !isLiked
-
-            val editor = sharedPreferences.edit()
-            editor.putBoolean("IS_LIKED", isLiked)
-            editor.putInt("LIKE_NUM", numOfLikes)
-            editor.apply()
         }
 
         binding.imgPlay.setOnClickListener{
@@ -103,6 +100,32 @@ class WhoWeAreFragment : Fragment() {
             showOpenLinkDialog()
         }
     }
+    private fun showUnlikeDialog(numOfLikes: Int, sharedPreferences: SharedPreferences) {
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setTitle("Unlike Confirmation")
+        builder.setMessage("Are you sure you want to unlike?")
+
+        builder.setPositiveButton("Yes") { dialog, _ ->
+            var updatedLikes = numOfLikes - 1
+            binding.btnLike.setIconResource(R.drawable.like_icon)
+            binding.btnLike.text = updatedLikes.toString()
+
+            val editor = sharedPreferences.edit()
+            editor.putBoolean("IS_LIKED", false)
+            editor.putInt("LIKE_NUM", updatedLikes)
+            editor.apply()
+
+            dialog.dismiss()
+        }
+
+        builder.setNegativeButton("No") { dialog, _ ->
+            dialog.dismiss()
+        }
+
+        val dialog = builder.create()
+        dialog.show()
+    }
+
     private fun loadMovie() {
         binding.webView.settings.javaScriptEnabled = true
         binding.webView.settings.mediaPlaybackRequiresUserGesture = false
