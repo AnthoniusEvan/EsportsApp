@@ -10,13 +10,48 @@
 
     <FrameLayout
         android:id="@+id/frame1"
-        android:layout_width="345dp"
+        android:layout_width="0dp"
         android:layout_height="206dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="44dp"
+        android:layout_marginEnd="32dp"
         android:background="@drawable/img_whoweare"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imgPlay"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_gravity="center"
+            android:src="@drawable/baseline_play_circle_outline_24"
+            android:alpha="0.8"
+            app:tint="@color/white" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/parentWebView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <WebView
+                android:id="@+id/webView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="0dp" />
+
+            <ProgressBar
+                android:id="@+id/progressWebView"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/webView"
+                app:layout_constraintEnd_toEndOf="@+id/webView"
+                app:layout_constraintStart_toStartOf="@+id/webView"
+                app:layout_constraintTop_toTopOf="@+id/webView" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </FrameLayout>
 
@@ -24,7 +59,7 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:fontFamily="@font/montserrat_bold_italic"
         android:text="Eclipse Vanguard"
         android:textColor="@color/white"
@@ -36,15 +71,17 @@
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="345dp"
-        android:layout_height="186dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
         android:fontFamily="@font/montserrat"
         android:justificationMode="inter_word"
         android:text="Eclipse Vanguard is a dynamic and cutting-edge esports team known for its fearless approach and strategic prowess. Named after the rare and awe-inspiring solar eclipse, the team symbolizes a moment of complete dominance and brilliance on the gaming stage. 'Vanguard' reflects their leadership in pushing the boundaries of competitive play, always ahead of the curve and setting new standards in their chosen games. With a diverse roster of talented players, Eclipse Vanguard excels in adaptability, teamwork, and innovation, consistently striving for excellence in every tournament they enter."
         android:textAlignment="viewStart"
         android:textColor="@color/white"
-        android:textSize="13dp"
+        android:textSize="14dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.514"
         app:layout_constraintStart_toStartOf="parent"
@@ -57,7 +94,7 @@
         style="@style/Widget.Material3.Button.IconButton.Outlined"
         android:layout_width="81dp"
         android:layout_height="46dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/montserrat_semibold"
         android:paddingLeft="15dp"
         android:paddingRight="15dp"

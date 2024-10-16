@@ -1,15 +1,18 @@
 package com.app.esports.ui
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebView
+import android.webkit.WebViewClient
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.app.esports.R
 import com.app.esports.StaticData
-import com.app.esports.databinding.ActivityWhoWeAreBinding
 import com.app.esports.databinding.FragmentScheduleBinding
 import com.app.esports.databinding.FragmentWhoWeAreBinding
 import com.app.esports.ui.schedule.ScheduleAdapter
@@ -54,29 +57,65 @@ class WhoWeAreFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        if (StaticData.isLiked) {
+
+        val sharedPreferences: SharedPreferences = view.context.getSharedPreferences("SETTING", Context.MODE_PRIVATE)
+        var isLiked = sharedPreferences.getBoolean("IS_LIKED", false)
+        var numOfLikes = sharedPreferences.getInt("LIKE_NUM", 0)
+
+        if (isLiked) {
             binding.btnLike.setIconResource(R.drawable.like_icon_active)
         }
         else {
             binding.btnLike.setIconResource(R.drawable.like_icon)
         }
-        binding.btnLike.text = StaticData.numOfLikes.toString()
+        binding.btnLike.text = numOfLikes.toString()
 
         binding.btnLike.setOnClickListener{
-            StaticData.numOfLikes = binding.btnLike.text.toString().toInt()
-            if (StaticData.isLiked) {
-                StaticData.numOfLikes--
+            isLiked = sharedPreferences.getBoolean("IS_LIKED", false)
+            numOfLikes = sharedPreferences.getInt("LIKE_NUM", 0)
+
+            if (isLiked) {
+                numOfLikes--
                 binding.btnLike.setIconResource(R.drawable.like_icon)
             }
             else {
-                StaticData.numOfLikes++
+                numOfLikes++
                 binding.btnLike.setIconResource(R.drawable.like_icon_active)
             }
 
-            binding.btnLike.text = StaticData.numOfLikes.toString()
-            StaticData.isLiked = !StaticData.isLiked
+            binding.btnLike.text = numOfLikes.toString()
+            isLiked = !isLiked
+
+            val editor = sharedPreferences.edit()
+            editor.putBoolean("IS_LIKED", isLiked)
+            editor.putInt("LIKE_NUM", numOfLikes)
+            editor.apply()
+        }
+
+        binding.imgPlay.setOnClickListener{
+            binding.parentWebView.visibility = View.VISIBLE
+            loadMovie()
         }
     }
+    private fun loadMovie() {
+        binding.webView.settings.javaScriptEnabled = true
+        binding.webView.settings.mediaPlaybackRequiresUserGesture = false
+
+        binding.webView.webViewClient = object : WebViewClient() {
+            override fun onPageFinished(view: WebView?, url: String?) {
+                super.onPageFinished(view, url)
+                binding.progressWebView.visibility = View.INVISIBLE
+            }
+            override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
+                return true
+            }
+        }
+        val videoId = "bqjJBxDRPl4"
+        val youtubeUrl = "https://www.youtube.com/embed/$videoId?autoplay=1&mute=0&controls=1"
+
+        binding.webView.loadUrl(youtubeUrl)
+    }
+
     companion object {
         /**
          * Use this factory method to create a new instance of

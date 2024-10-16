@@ -28,12 +28,13 @@ class TeamDetailsAdapter(private val players: Array<Player>):RecyclerView.Adapte
     override fun onBindViewHolder(holder: PlayerViewHolder, position: Int) {
         holder.binding.txtPlayerName.text = players[position].name
         holder.binding.txtPlayerRole.text = players[position].role
-        val imageUrl = "https://i.pravatar.cc/150?img=${position + 1}"
-        Picasso.get()
-            .load(imageUrl)
-            .placeholder(R.drawable.icon_star)
-            .error(R.drawable.like_icon)
-            .into(holder.binding.playerImage)
+        val imageUrl = "https://i.pravatar.cc/150"
+
+        val builder = Picasso.Builder(holder.itemView.context)
+        builder.listener { picasso, uri, exception ->
+            exception.printStackTrace()
+        }
+        builder.build().load(imageUrl).into(holder.binding.playerImage)
     }
 
 

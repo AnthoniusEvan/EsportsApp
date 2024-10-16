@@ -5,14 +5,12 @@ import com.app.esports.ui.teams.Player
 
 object StaticData {
     var schedules: Array<Schedule> = arrayOf(
-        Schedule("20 SEP", "Regional Qualifier - Valorant", "Void Runners", R.drawable.poster_schedule_1),
-        Schedule("25 SEP", "Elimination Round - CS:GO", "Nova Strike", R.drawable.poster_schedule_2),
-        Schedule("9 OCT", "Semifinal - Mobile Legends", "Phantom Core", R.drawable.poster_schedule_3),
-        Schedule("16 OCT", "National Qualifier - PUBG", "Solar Surge", R.drawable.poster_schedule_4),
-        Schedule("25 SEP", "International Qualifier - LOL", "Shadow Wraiths", R.drawable.poster_schedule_5)
+        Schedule("20 SEP", "Regional Qualifier - Valorant", "Void Runners", R.drawable.poster_schedule_1, 1),
+        Schedule("25 SEP", "Elimination Round - CS:GO", "Nova Strike", R.drawable.poster_schedule_2, 2),
+        Schedule("9 OCT", "Semifinal - Mobile Legends", "Phantom Core", R.drawable.poster_schedule_3, 3),
+        Schedule("16 OCT", "National Qualifier - PUBG", "Solar Surge", R.drawable.poster_schedule_4, 4),
+        Schedule("25 SEP", "International Qualifier - LOL", "Shadow Wraiths", R.drawable.poster_schedule_5, 5)
     )
-    var isLiked:Boolean = false
-    var numOfLikes:Int = 0
 
     var games: Array<Game> = arrayOf(
         Game("Valorant", "Valorant is an online multiplayer computer game, produced by Riot Games. It is a first-person shooter game, consisting of two teams of five, where one team attacks and the other defends.", R.drawable.valorant),

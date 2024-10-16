@@ -10,7 +10,7 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="30dp"
@@ -31,13 +31,13 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnNotify"
-                style="@style/Widget.Material3.Button.IconButton.Outlined"
-                android:layout_width="140dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="220dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginBottom="20dp"
+                android:background="@drawable/outlined_button"
                 android:fontFamily="@font/montserrat_semibold"
                 android:paddingLeft="15dp"
                 android:paddingRight="15dp"
@@ -46,7 +46,7 @@
                 android:textColor="@color/primary_red"
                 android:textColorLink="#F60000"
                 android:textSize="15sp"
-                app:icon="@drawable/baseline_access_alarm_24"
+                app:icon="@drawable/outline_add_alarm_24"
                 app:iconTint="@color/primary_red"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
