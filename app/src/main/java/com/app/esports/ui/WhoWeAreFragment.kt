@@ -1,7 +1,10 @@
 package com.app.esports.ui
 
+import android.app.AlertDialog
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -96,6 +99,9 @@ class WhoWeAreFragment : Fragment() {
             binding.parentWebView.visibility = View.VISIBLE
             loadMovie()
         }
+        binding.textView2.setOnClickListener {
+            showOpenLinkDialog()
+        }
     }
     private fun loadMovie() {
         binding.webView.settings.javaScriptEnabled = true
@@ -114,6 +120,27 @@ class WhoWeAreFragment : Fragment() {
         val youtubeUrl = "https://www.youtube.com/embed/$videoId?autoplay=1&mute=0&controls=1"
 
         binding.webView.loadUrl(youtubeUrl)
+    }
+    private fun openLink() {
+        val url = "https://masseffect.fandom.com/wiki/Eclipse_Vanguard"
+        val intent = Intent(Intent.ACTION_VIEW)
+        intent.data = Uri.parse(url)
+        startActivity(intent)
+    }
+    private fun showOpenLinkDialog() {
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setTitle("Open Link")
+        builder.setMessage("Do you want to open Eclipse Vanguard's page?")
+        builder.setPositiveButton("Yes") { dialog, _ ->
+            openLink()
+            dialog.dismiss()
+        }
+        builder.setNegativeButton("No") { dialog, _ ->
+            dialog.dismiss()
+        }
+
+        val dialog = builder.create()
+        dialog.show()
     }
 
     companion object {

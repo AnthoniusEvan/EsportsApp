@@ -67,6 +67,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
+        android:onClick="openLink"
         app:layout_constraintTop_toBottomOf="@+id/frame1" />
 
     <TextView
