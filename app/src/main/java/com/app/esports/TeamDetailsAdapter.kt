@@ -10,6 +10,7 @@ import com.app.esports.R
 import com.app.esports.StaticData
 import com.app.esports.databinding.PlayerCardBinding
 import com.app.esports.ui.teams.Player
+import com.squareup.picasso.Picasso
 
 
 class TeamDetailsAdapter(private val players: Array<Player>):RecyclerView.Adapter<TeamDetailsAdapter.PlayerViewHolder>() {
@@ -27,6 +28,12 @@ class TeamDetailsAdapter(private val players: Array<Player>):RecyclerView.Adapte
     override fun onBindViewHolder(holder: PlayerViewHolder, position: Int) {
         holder.binding.txtPlayerName.text = players[position].name
         holder.binding.txtPlayerRole.text = players[position].role
+        val imageUrl = "https://i.pravatar.cc/150?img=${position + 1}"
+        Picasso.get()
+            .load(imageUrl)
+            .placeholder(R.drawable.icon_star)
+            .error(R.drawable.like_icon)
+            .into(holder.binding.playerImage)
     }
 
 
