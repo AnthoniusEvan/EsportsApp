@@ -84,9 +84,8 @@ class WhoWeAreFragment : Fragment() {
                 binding.btnLike.setIconResource(R.drawable.like_icon_active)
                 binding.btnLike.text = numOfLikes.toString()
 
-                isLiked = true
                 val editor = sharedPreferences.edit()
-                editor.putBoolean("IS_LIKED", isLiked)
+                editor.putBoolean("IS_LIKED", true)
                 editor.putInt("LIKE_NUM", numOfLikes)
                 editor.apply()
             }
