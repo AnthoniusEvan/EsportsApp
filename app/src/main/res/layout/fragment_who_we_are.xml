@@ -82,7 +82,7 @@
         android:text="Eclipse Vanguard is a dynamic and cutting-edge esports team known for its fearless approach and strategic prowess. Named after the rare and awe-inspiring solar eclipse, the team symbolizes a moment of complete dominance and brilliance on the gaming stage. 'Vanguard' reflects their leadership in pushing the boundaries of competitive play, always ahead of the curve and setting new standards in their chosen games. With a diverse roster of talented players, Eclipse Vanguard excels in adaptability, teamwork, and innovation, consistently striving for excellence in every tournament they enter."
         android:textAlignment="viewStart"
         android:textColor="@color/white"
-        android:textSize="14dp"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.514"
         app:layout_constraintStart_toStartOf="parent"

@@ -11,13 +11,19 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.viewpager2.widget.ViewPager2
 import com.app.esports.databinding.ActivityMainBinding
+import com.app.esports.ui.WhatWePlayFragment
+import com.app.esports.ui.WhoWeAreFragment
+import com.app.esports.ui.home.HomeFragment
+import com.app.esports.ui.schedule.ScheduleFragment
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
-
+    val fragments: ArrayList<Fragment> = ArrayList()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -37,6 +43,29 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        fragments.add(WhatWePlayFragment())
+        fragments.add(ScheduleFragment())
+        fragments.add(WhoWeAreFragment())
+
+        binding.appBarMain.main.viewPager.adapter = ViewPagerAdapter(this, fragments)
+
+        binding.appBarMain.main.viewPager.registerOnPageChangeCallback(object: ViewPager2.OnPageChangeCallback(){
+            override fun onPageSelected(position: Int) {
+                binding.appBarMain.main.bottomNav.selectedItemId = binding.appBarMain.main.bottomNav.menu.getItem(position).itemId
+            }
+        })
+
+        binding.appBarMain.main.bottomNav.setOnItemSelectedListener {
+            binding.appBarMain.main.viewPager.currentItem = when(it.itemId){
+                R.id.itemWhatWePlay -> 0
+                R.id.itemOurSchedule -> 1
+                R.id.itemWhoWeAre -> 2
+
+                else -> 0
+            }
+            true
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

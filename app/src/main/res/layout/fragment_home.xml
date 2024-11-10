@@ -4,15 +4,126 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#111827"
     tools:context=".ui.home.HomeFragment">
 
-    <include
-        android:id="@+id/included_layout"
-        layout="@layout/activity_home"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <FrameLayout
+        android:id="@+id/frame1"
+        android:layout_width="327dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/games_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/games"
+            android:scaleType="fitCenter"
+            android:src="@drawable/games"
+            android:clickable="false"
+            android:focusable="false">
+
+        </ImageButton>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="GAMES WE PLAY"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:clickable="false"
+            android:focusable="false">
+
+        </TextView>
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame2"
+        android:layout_width="327dp"
+        android:layout_height="160dp"
+        android:background="@drawable/whoweare_bg"
+        app:layout_constraintBottom_toTopOf="@+id/frame3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frame1"
+        >
+
+        <ImageButton
+            android:id="@+id/btnWhoWeAre"
+            android:layout_width="74dp"
+            android:layout_height="74dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/whoweare"
+            android:scaleType="fitCenter"
+            android:src="@drawable/whoweare"
+            android:clickable="false"
+            android:focusable="false">
+
+        </ImageButton>
+
+        <TextView
+            android:id="@+id/txtWhoWeAre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="WHO WE ARE"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:clickable="false"
+            android:focusable="false">
+
+        </TextView>
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame3"
+        android:layout_width="327dp"
+        android:layout_height="160dp"
+        android:layout_marginBottom="60dp"
+        android:background="@drawable/ourschedule_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageButton
+            android:layout_width="74dp"
+            android:layout_height="74dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/calendar"
+            android:scaleType="fitCenter"
+            android:src="@drawable/calendar"
+            android:clickable="false"
+            android:focusable="false">
+
+        </ImageButton>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="OUR SCHEDULE"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:clickable="false"
+            android:focusable="false">
+
+        </TextView>
+
+    </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -28,6 +28,8 @@ class GameAdapter(private val navController: NavController):RecyclerView.Adapter
         holder.binding.txtDesc.setText(StaticData.games[position].desc)
         holder.binding.imgGame.setImageResource(StaticData.games[position].imageId)
 
+        //holder.binding.ratingBar.rating = StaticData.games[position].rating.toFloat()
+
         holder.binding.btnTeams.setOnClickListener{
             val bundle = Bundle()
             val entryList = StaticData.teams.entries.toList()

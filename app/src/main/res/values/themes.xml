@@ -22,4 +22,13 @@
     <style name="Theme.EsportsApp.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.EsportsApp.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="BottomNav" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="itemIconTint">@color/bottom_nav_item_icon_color</item>
+        <item name="itemTextColor">@color/bottom_nav_item_icon_color</item>
+        <item name="itemBackground">@drawable/bottom_nav_item_background_selector</item>
+        <item name="background">@drawable/bottom_nav_background</item>
+        <item name="itemTextAppearance">"@font/montserrat"</item>
+
+    </style>
 </resources>
