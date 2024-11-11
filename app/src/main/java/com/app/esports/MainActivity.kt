@@ -20,6 +20,13 @@ import com.app.esports.ui.schedule.ScheduleFragment
 
 class MainActivity : AppCompatActivity() {
 
+    //temporary array
+    var userData: ArrayList<User> = arrayListOf(
+        User(1, "user1", "user1@gmail.com", "password1"),
+        User(2, "user2", "user2@gmail.com", "password2"),
+        User(3, "admin", "admin@gmail.com", "admin123")
+    )
+
     private lateinit var appBarConfiguration: AppBarConfiguration
     public lateinit var binding: ActivityMainBinding
     val fragments: ArrayList<Fragment> = ArrayList()
