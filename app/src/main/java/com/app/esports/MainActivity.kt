@@ -2,7 +2,7 @@ package com.app.esports
 
 import android.os.Bundle
 import android.view.Menu
-import com.google.android.material.snackbar.Snackbar
+import android.view.View
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -16,14 +16,14 @@ import androidx.viewpager2.widget.ViewPager2
 import com.app.esports.databinding.ActivityMainBinding
 import com.app.esports.ui.WhatWePlayFragment
 import com.app.esports.ui.WhoWeAreFragment
-import com.app.esports.ui.home.HomeFragment
 import com.app.esports.ui.schedule.ScheduleFragment
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
-    private lateinit var binding: ActivityMainBinding
+    public lateinit var binding: ActivityMainBinding
     val fragments: ArrayList<Fragment> = ArrayList()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -48,24 +48,69 @@ class MainActivity : AppCompatActivity() {
         fragments.add(ScheduleFragment())
         fragments.add(WhoWeAreFragment())
 
-        binding.appBarMain.main.viewPager.adapter = ViewPagerAdapter(this, fragments)
+        with(binding.appBarMain.main){
+            viewPager.adapter = ViewPagerAdapter(this@MainActivity, fragments)
+            viewPager.registerOnPageChangeCallback(object: ViewPager2.OnPageChangeCallback(){
+                override fun onPageSelected(position: Int) {
+                    bottomNav.selectedItemId = bottomNav.menu.getItem(position).itemId
 
-        binding.appBarMain.main.viewPager.registerOnPageChangeCallback(object: ViewPager2.OnPageChangeCallback(){
-            override fun onPageSelected(position: Int) {
-                binding.appBarMain.main.bottomNav.selectedItemId = binding.appBarMain.main.bottomNav.menu.getItem(position).itemId
+                    when(position){
+                        0 -> {
+                            viewPager.setCurrentItem(0, true)
+                            title = "GAMES"
+                        }
+                        1 -> {
+                            viewPager.setCurrentItem(1, true)
+                            title = "SCHEDULE"
+                        }
+                        2 -> {
+                            viewPager.setCurrentItem(2, true)
+                            title = "TEAMS"
+                        }
+                    }
+                }
+            })
+
+            bottomNav.setOnItemSelectedListener { item ->
+                when(item.itemId){
+                    R.id.itemWhatWePlay -> {
+                        viewPager.setCurrentItem(0, true)
+                        title = "GAMES"
+                    }
+                    R.id.itemOurSchedule -> {
+                        viewPager.setCurrentItem(1, true)
+                        title = "SCHEDULE"
+                    }
+                    R.id.itemWhoWeAre -> {
+                        viewPager.setCurrentItem(2, true)
+                        title = "TEAMS"
+                    }
+                }
+                toggleMainAndAdditionalFragments(true)
+                true
             }
-        })
 
-        binding.appBarMain.main.bottomNav.setOnItemSelectedListener {
-            binding.appBarMain.main.viewPager.currentItem = when(it.itemId){
-                R.id.itemWhatWePlay -> 0
-                R.id.itemOurSchedule -> 1
-                R.id.itemWhoWeAre -> 2
+            navController.addOnDestinationChangedListener { _, destination, _ ->
+                var showMain = true
+                when(destination.id){
+                    R.id.nav_whatweplay -> viewPager.setCurrentItem(0, true)
+                    R.id.nav_schedule -> viewPager.setCurrentItem(1, true)
+                    R.id.nav_whoweare -> viewPager.setCurrentItem(2, true)
 
-                else -> 0
+                    else -> {
+                        showMain = false
+                    }
+                }
+                toggleMainAndAdditionalFragments(showMain)
             }
-            true
         }
+        toggleMainAndAdditionalFragments(true)
+    }
+
+
+    private fun toggleMainAndAdditionalFragments(showMain: Boolean) {
+        binding.appBarMain.main.viewPager.visibility = if (showMain) View.VISIBLE else View.GONE
+        binding.appBarMain.main.fragmentContainer.visibility = if (showMain) View.GONE else View.VISIBLE
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
