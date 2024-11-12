@@ -20,12 +20,7 @@ import com.app.esports.ui.schedule.ScheduleFragment
 
 class MainActivity : AppCompatActivity() {
 
-    //temporary array
-    var userData: ArrayList<User> = arrayListOf(
-        User(1, "user1", "user1@gmail.com", "password1"),
-        User(2, "user2", "user2@gmail.com", "password2"),
-        User(3, "admin", "admin@gmail.com", "admin123")
-    )
+
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     public lateinit var binding: ActivityMainBinding
@@ -64,15 +59,12 @@ class MainActivity : AppCompatActivity() {
                     when(position){
                         0 -> {
                             viewPager.setCurrentItem(0, true)
-                            title = "GAMES"
                         }
                         1 -> {
                             viewPager.setCurrentItem(1, true)
-                            title = "SCHEDULE"
                         }
                         2 -> {
                             viewPager.setCurrentItem(2, true)
-                            title = "TEAMS"
                         }
                     }
                 }
@@ -82,17 +74,19 @@ class MainActivity : AppCompatActivity() {
                 when(item.itemId){
                     R.id.itemWhatWePlay -> {
                         viewPager.setCurrentItem(0, true)
-                        title = "GAMES"
+                        supportActionBar?.title = "GAMES"
                     }
                     R.id.itemOurSchedule -> {
                         viewPager.setCurrentItem(1, true)
-                        title = "SCHEDULE"
+                        supportActionBar?.title = "SCHEDULE"
                     }
                     R.id.itemWhoWeAre -> {
                         viewPager.setCurrentItem(2, true)
-                        title = "TEAMS"
+                        supportActionBar?.title = "TEAMS"
                     }
                 }
+                navController.navigateUp()
+
                 toggleMainAndAdditionalFragments(true)
                 true
             }
@@ -129,5 +123,14 @@ class MainActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    }
+
+    companion object{
+        //temporary array
+        var userData: ArrayList<User> = arrayListOf(
+            User(1, "user1", "user1@gmail.com", "password1"),
+            User(2, "user2", "user2@gmail.com", "password2"),
+            User(3, "admin", "admin@gmail.com", "admin123")
+        )
     }
 }
