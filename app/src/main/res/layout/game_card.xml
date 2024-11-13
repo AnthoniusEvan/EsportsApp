@@ -116,10 +116,9 @@
                     android:textColor="@color/white"
                     android:textColorLink="#F60000"
                     android:textSize="15dp"
-                    app:backgroundTint="@null"
-                    app:strokeColor="@color/primary_red"
+                    app:backgroundTint="@color/primary_bg"
                     app:cornerRadius="12dp"
-                    >
+                    app:strokeColor="@color/primary_red">
 
                 </com.google.android.material.button.MaterialButton>
 

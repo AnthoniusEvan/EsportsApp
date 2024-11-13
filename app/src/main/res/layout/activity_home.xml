@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#111827"
+    android:background="@color/primary_bg"
     tools:context=".Home">
 
     <FrameLayout
@@ -25,10 +24,10 @@
             android:layout_gravity="center"
             android:layout_marginBottom="20dp"
             android:background="@drawable/games"
-            android:scaleType="fitCenter"
-            android:src="@drawable/games"
             android:clickable="false"
-            android:focusable="false">
+            android:focusable="false"
+            android:scaleType="fitCenter"
+            android:src="@drawable/games">
 
         </ImageButton>
 
@@ -37,12 +36,12 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="40dp"
+            android:clickable="false"
+            android:focusable="false"
             android:fontFamily="@font/montserrat_medium"
             android:text="GAMES WE PLAY"
             android:textColor="@color/white"
-            android:textSize="20dp"
-            android:clickable="false"
-            android:focusable="false">
+            android:textSize="20dp">
 
         </TextView>
 
@@ -56,8 +55,7 @@
         app:layout_constraintBottom_toTopOf="@+id/frame3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frame1"
-        >
+        app:layout_constraintTop_toBottomOf="@+id/frame1">
 
         <ImageButton
             android:id="@+id/btnWhoWeAre"
@@ -66,10 +64,10 @@
             android:layout_gravity="center"
             android:layout_marginBottom="20dp"
             android:background="@drawable/whoweare"
-            android:scaleType="fitCenter"
-            android:src="@drawable/whoweare"
             android:clickable="false"
-            android:focusable="false">
+            android:focusable="false"
+            android:scaleType="fitCenter"
+            android:src="@drawable/whoweare">
 
         </ImageButton>
 
@@ -79,12 +77,12 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="40dp"
+            android:clickable="false"
+            android:focusable="false"
             android:fontFamily="@font/montserrat_medium"
             android:text="WHO WE ARE"
             android:textColor="@color/white"
-            android:textSize="20dp"
-            android:clickable="false"
-            android:focusable="false">
+            android:textSize="20dp">
 
         </TextView>
 
@@ -106,10 +104,10 @@
             android:layout_gravity="center"
             android:layout_marginBottom="20dp"
             android:background="@drawable/calendar"
-            android:scaleType="fitCenter"
-            android:src="@drawable/calendar"
             android:clickable="false"
-            android:focusable="false">
+            android:focusable="false"
+            android:scaleType="fitCenter"
+            android:src="@drawable/calendar">
 
         </ImageButton>
 
@@ -118,15 +116,15 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="40dp"
+            android:clickable="false"
+            android:focusable="false"
             android:fontFamily="@font/montserrat_medium"
             android:text="OUR SCHEDULE"
             android:textColor="@color/white"
-            android:textSize="20dp"
-            android:clickable="false"
-            android:focusable="false">
+            android:textSize="20dp">
 
         </TextView>
 
     </FrameLayout>
 
-  </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

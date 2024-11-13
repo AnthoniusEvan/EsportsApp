@@ -15,7 +15,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="#EE0000"
+            android:background="@color/primary_red"
             app:popupTheme="@style/Theme.EsportsApp.PopupOverlay" />
 
     </com.google.android.material.appbar.AppBarLayout>
