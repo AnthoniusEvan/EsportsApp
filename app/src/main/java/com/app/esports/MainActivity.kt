@@ -1,8 +1,13 @@
 package com.app.esports
 
+import android.content.Context
+import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -14,15 +19,16 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
+import com.app.esports.SignInFragment.Companion.REMEMBER_ME
+import com.app.esports.SignInFragment.Companion.SAVED_PASSWORD
+import com.app.esports.SignInFragment.Companion.SAVED_USERNAME
 import com.app.esports.databinding.ActivityMainBinding
 import com.app.esports.ui.WhatWePlayFragment
 import com.app.esports.ui.WhoWeAreFragment
+import com.app.esports.ui.auth.AuthActivity
 import com.app.esports.ui.schedule.ScheduleFragment
 
 class MainActivity : AppCompatActivity() {
-
-
-
     private lateinit var appBarConfiguration: AppBarConfiguration
     public lateinit var binding: ActivityMainBinding
     val fragments: ArrayList<Fragment> = ArrayList()
@@ -108,6 +114,8 @@ class MainActivity : AppCompatActivity() {
                 }
                 toggleMainAndAdditionalFragments(showMain)
             }
+
+
         }
         toggleMainAndAdditionalFragments(true)
     }
@@ -121,8 +129,33 @@ class MainActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.main, menu)
+
+        val menuItem = menu?.findItem(R.id.username)
+
+        menuItem?.title = "Hi, John" // change to active user
         return true
     }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.logout -> {
+                val sharedPreferences: SharedPreferences = applicationContext.getSharedPreferences("SETTING", Context.MODE_PRIVATE)
+                val editor = sharedPreferences.edit()
+                editor.putBoolean(SignInFragment.REMEMBER_ME, false)
+                editor.remove(SignInFragment.SAVED_USERNAME)
+                editor.remove(SignInFragment.SAVED_PASSWORD)
+                editor.apply()
+
+                val intent = Intent(applicationContext, AuthActivity::class.java)
+                startActivity(intent)
+
+                finish()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_content_main)

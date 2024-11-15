@@ -76,6 +76,8 @@ class SignInFragment : Fragment() {
 
                         val intent = Intent(context, MainActivity::class.java)
                         context?.startActivity(intent)
+
+                        activity?.finish()
                     } else {
                         Toast.makeText(context, "Invalid Username or Password", Toast.LENGTH_SHORT)
                             .show()
@@ -88,7 +90,11 @@ class SignInFragment : Fragment() {
             }
 
             lblSignUp.setOnClickListener {
-                Toast.makeText(context, "Sign Up clicked", Toast.LENGTH_SHORT).show()
+                activity?.supportFragmentManager?.beginTransaction()?.apply {
+                    replace(R.id.main, SignUpFragment())
+                    addToBackStack(null)
+                    commit()
+                }
             }
 
             pbTogglePassword.setOnClickListener {

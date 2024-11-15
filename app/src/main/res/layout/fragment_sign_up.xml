@@ -18,8 +18,8 @@
             android:layout_height="30dp"
             android:contentDescription="Back"
             android:padding="4dp"
-            android:src="@android:drawable/ic_arrow_back_black_24dp"
-            android:tint="#FFFFFF" />
+            android:src="@drawable/baseline_arrow_back_24"
+            app:tint="#FFFFFF" />
 
         <!-- Title -->
         <TextView
@@ -48,21 +48,21 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:text="First Name"
             android:textColor="@color/white"
             android:textSize="14sp" />
 
-        <TextView
-            android:id="@+id/tvFirstName"
+        <EditText
+            android:id="@+id/etFirstName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:background="@drawable/rounded_background"
+            android:hint="John"
             android:padding="12dp"
-            android:text="Lois Becket"
             android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:singleLine="true"/>
 
         <!-- Last Name Label and Field -->
         <TextView
@@ -73,16 +73,18 @@
             android:textColor="@color/white"
             android:textSize="14sp" />
 
-        <TextView
-            android:id="@+id/tvLastName"
+        <EditText
+            android:id="@+id/etLastName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:background="@drawable/rounded_background"
+            android:hint="Doe"
             android:padding="12dp"
-            android:text="Lois Becket"
             android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:singleLine="true"/>
+
 
         <!-- Username Label and Field -->
         <TextView
@@ -93,16 +95,17 @@
             android:textColor="@color/white"
             android:textSize="14sp" />
 
-        <TextView
-            android:id="@+id/tvUsername"
+        <EditText
+            android:id="@+id/etUsername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:background="@drawable/rounded_background"
+            android:hint="johndoe123"
             android:padding="12dp"
-            android:text="Lois Becket"
             android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:singleLine="true"/>
 
         <!-- Password Label and Field -->
         <TextView
@@ -123,7 +126,8 @@
             android:inputType="textPassword"
             android:padding="12dp"
             android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:singleLine="true"/>
 
         <!-- Repeat Password Label and Field -->
         <TextView
@@ -144,7 +148,8 @@
             android:inputType="textPassword"
             android:padding="12dp"
             android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:singleLine="true"/>
 
         <!-- Checkbox for Terms and Conditions -->
         <CheckBox
@@ -162,6 +167,7 @@
             android:layout_height="48dp"
             android:layout_marginTop="16dp"
             android:backgroundTint="@color/primary_red"
+            android:enabled="false"
             android:text="Register"
             android:textColor="#FFFFFF"
             app:cornerRadius="10dp" />
