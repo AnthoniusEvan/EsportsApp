@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,7 +15,13 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.android.volley.Request
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
 import com.app.esports.databinding.FragmentSignInBinding
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import org.json.JSONObject
 
 private const val ARG_USER = "user"
 
@@ -35,10 +42,7 @@ class SignInFragment : Fragment() {
             val username: String = sharedPreferences.getString(SAVED_USERNAME, "").toString()
             val password: String = sharedPreferences.getString(SAVED_PASSWORD, "").toString()
 
-            if (authenticate(username, password)){
-                val intent = Intent(context, MainActivity::class.java)
-                context?.startActivity(intent)
-            }
+            authenticate(username, password)
         }
     }
     override fun onCreateView(
@@ -55,33 +59,7 @@ class SignInFragment : Fragment() {
         with(binding) {
             btnSignIn.setOnClickListener {
                 if (validateInputs()) {
-                    if (authenticate(txtUsername.text.toString(), txtPassword.text.toString())) {
-                        Toast.makeText(context, "Sign In Successful", Toast.LENGTH_SHORT).show()
-                        val sharedPreferences: SharedPreferences =
-                            requireContext().getSharedPreferences(
-                                "SETTING", Context.MODE_PRIVATE
-                            )
-                        val editor = sharedPreferences.edit()
-
-                        if (cbRememberMe.isChecked) {
-                            editor.putBoolean(REMEMBER_ME, true)
-                            editor.putString(SAVED_USERNAME, txtUsername.text.toString())
-                            editor.putString(SAVED_PASSWORD, txtPassword.text.toString())
-                        } else {
-                            editor.putBoolean(REMEMBER_ME, false)
-                            editor.remove(SAVED_USERNAME)
-                            editor.remove(SAVED_PASSWORD)
-                        }
-                        editor.apply()
-
-                        val intent = Intent(context, MainActivity::class.java)
-                        context?.startActivity(intent)
-
-                        activity?.finish()
-                    } else {
-                        Toast.makeText(context, "Invalid Username or Password", Toast.LENGTH_SHORT)
-                            .show()
-                    }
+                    authenticate(txtUsername.text.toString(), txtPassword.text.toString())
                 }
             }
 
@@ -130,13 +108,69 @@ class SignInFragment : Fragment() {
             txtPassword.setSelection(txtPassword.text.length)
         }
     }
-    private fun authenticate(username: String, password: String): Boolean {
-        for (user in MainActivity.userData) {
-            if (user.username == username && user.password == password) {
-                return true
+    private fun authenticate(username: String, password: String){
+        val q = Volley.newRequestQueue(activity)
+        val url = "https://ubaya.xyz/native/160922001/api/login.php"
+        val stringRequest = object : StringRequest(
+            Request.Method.POST, url,
+            {
+                Log.d("apiresult", it)
+                val obj = JSONObject(it)
+                if (obj.getString("result") == "OK"){
+                    val data = obj.getJSONArray("data")
+//                    val sType = object : TypeToken<User>() { }.type
+//                    val active_user:User = Gson().fromJson(data.toString(), sType) as User
+
+                    val userObj = data.getJSONObject(0)
+                    val active_user: User = User(userObj.getInt("id"), userObj.getString("first_name"), userObj.getString("last_name"), userObj.getString("username"), userObj.getString("password"))
+
+                    Log.d("apiresult", active_user.toString())
+
+                    val sharedPreferences: SharedPreferences =
+                        requireContext().getSharedPreferences(
+                            "SETTING", Context.MODE_PRIVATE
+                        )
+                    val editor = sharedPreferences.edit()
+
+                    if (binding.cbRememberMe.isChecked) {
+                        editor.putBoolean(REMEMBER_ME, true)
+                        editor.putString(SAVED_USERNAME, binding.txtUsername.text.toString())
+                        editor.putString(SAVED_PASSWORD, binding.txtPassword.text.toString())
+                    } else {
+                        editor.putBoolean(REMEMBER_ME, false)
+                        editor.remove(SAVED_USERNAME)
+                        editor.remove(SAVED_PASSWORD)
+                    }
+                    editor.apply()
+
+
+                    val intent = Intent(context, MainActivity::class.java)
+                    intent.putExtra(MainActivity.USER, active_user)
+                    context?.startActivity(intent)
+                    activity?.finish()
+                }
+                else {
+                    Toast.makeText(activity, obj.getString("message"), Toast.LENGTH_LONG).show()
+                }
+            },
+            {
+                Log.e("apiresult", it.message.toString())
+            },
+        ){
+            override fun getParams(): MutableMap<String, String>? {
+                val params = mutableMapOf<String, String>()
+                params["username"] = username
+                params["password"] = password
+                return params
             }
         }
-        return false
+        q.add(stringRequest)
+//        for (user in MainActivity.userData) {
+//            if (user.username == username && user.password == password) {
+//                return true
+//            }
+//        }
+//        return false
     }
     companion object {
         val REMEMBER_ME = "remember_me"

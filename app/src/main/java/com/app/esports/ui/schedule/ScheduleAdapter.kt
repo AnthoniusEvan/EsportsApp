@@ -1,12 +1,8 @@
 package com.app.esports.ui.schedule
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView.OnItemClickListener
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.app.esports.R
 import com.app.esports.StaticData
 import com.app.esports.databinding.ScheduleCardBinding
 
@@ -32,7 +28,7 @@ class ScheduleAdapter(private val listener: OnItemClickListener): RecyclerView.A
     }
 
     override fun onBindViewHolder(holder: ScheduleViewHolder, position: Int) {
-        holder.binding.image.setImageResource(StaticData.schedules[position].imageId)
+        holder.binding.image.setImageResource(StaticData.schedules[position].image_url)
         holder.binding.txtEventName.text = StaticData.schedules[position].title
         holder.binding.txtDate.text = StaticData.schedules[position].date
         holder.binding.txtTeam.text = "Played by "+StaticData.schedules[position].team

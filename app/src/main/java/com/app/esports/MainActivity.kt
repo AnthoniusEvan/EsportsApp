@@ -32,6 +32,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
     public lateinit var binding: ActivityMainBinding
     val fragments: ArrayList<Fragment> = ArrayList()
+    private lateinit var active_user: User
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,7 +47,7 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
 
         //AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-
+        active_user = (intent.getParcelableExtra<User>(USER)?: finish()) as User
 
         appBarConfiguration = AppBarConfiguration(
             setOf(
@@ -132,7 +133,7 @@ class MainActivity : AppCompatActivity() {
 
         val menuItem = menu?.findItem(R.id.username)
 
-        menuItem?.title = "Hi, John" // change to active user
+        menuItem?.title = "Hi, ${active_user.username}" // change to active user
         return true
     }
 
@@ -163,11 +164,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     companion object{
+        val USER = "USER"
         //temporary array
-        var userData: ArrayList<User> = arrayListOf(
-            User(1, "user1", "user1@gmail.com", "password1"),
-            User(2, "user2", "user2@gmail.com", "password2"),
-            User(3, "admin", "admin@gmail.com", "admin123")
-        )
+//        var userData: ArrayList<User> = arrayListOf(
+//            User(1, "user1", "user1@gmail.com", "password1"),
+//            User(2, "user2", "user2@gmail.com", "password2"),
+//            User(3, "admin", "admin@gmail.com", "admin123")
+//        )
     }
 }

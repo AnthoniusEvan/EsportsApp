@@ -5,18 +5,18 @@ import com.app.esports.ui.teams.Player
 
 object StaticData {
     var schedules: Array<Schedule> = arrayOf(
-        Schedule("20 SEP", "Regional Qualifier - Valorant", "Void Runners", R.drawable.poster_schedule_1, 1),
-        Schedule("25 SEP", "Elimination Round - CS:GO", "Nova Strike", R.drawable.poster_schedule_2, 2),
-        Schedule("9 OCT", "Semifinal - Mobile Legends", "Phantom Core", R.drawable.poster_schedule_3, 3),
-        Schedule("16 OCT", "National Qualifier - PUBG", "Solar Surge", R.drawable.poster_schedule_4, 4),
-        Schedule("25 SEP", "International Qualifier - LOL", "Shadow Wraiths", R.drawable.poster_schedule_5, 5)
+        Schedule(1,"20 SEP", "Regional Qualifier - Valorant", "Void Runners", R.drawable.poster_schedule_1),
+        Schedule(2,"25 SEP", "Elimination Round - CS:GO", "Nova Strike", R.drawable.poster_schedule_2),
+        Schedule(3,"9 OCT", "Semifinal - Mobile Legends", "Phantom Core", R.drawable.poster_schedule_3),
+        Schedule(4,"16 OCT", "National Qualifier - PUBG", "Solar Surge", R.drawable.poster_schedule_4),
+        Schedule(5,"25 SEP", "International Qualifier - LOL", "Shadow Wraiths", R.drawable.poster_schedule_5)
     )
 
     var games: Array<Game> = arrayOf(
-        Game("Valorant", "Valorant is an online multiplayer computer game, produced by Riot Games. It is a first-person shooter game, consisting of two teams of five, where one team attacks and the other defends.", R.drawable.valorant, 3),
-        Game("Mobile Legends", "Mobile Legends: Bang Bang is a fast-paced multiplayer online battle arena (MOBA) game where players team up in 5v5 matches to destroy the enemy base while defending their own. Featuring a wide range of heroes with unique abilities, Mobile Legends focuses on strategic teamwork, quick reflexes, and tactical play in a competitive environment.", R.drawable.mobile_legends, 4),
-        Game("CS:GO", "Counter-Strike: Global Offensive (CS:GO) is a tactical first-person shooter that pits teams of terrorists against counter-terrorists in objective-based game modes. With intense firefights, precision gunplay, and team strategy, CS:GO has become one of the most iconic esports titles, known for its high skill ceiling and competitive nature.", R.drawable.csgo, 5),
-        Game("PUBG","Player Unknown’s Battlegrounds (PUBG) is a battle royale game where up to 100 players parachute onto an island and scavenge for weapons and supplies to survive. The goal is to be the last person or team standing as the play area shrinks, forcing encounters and strategic combat. Known for its intense, large-scale firefights, PUBG revolutionized the battle royale genre.", R.drawable.pubg, 2),
+        Game(1,"Valorant", "Valorant is an online multiplayer computer game, produced by Riot Games. It is a first-person shooter game, consisting of two teams of five, where one team attacks and the other defends.", R.drawable.valorant),
+        Game(2,"Mobile Legends", "Mobile Legends: Bang Bang is a fast-paced multiplayer online battle arena (MOBA) game where players team up in 5v5 matches to destroy the enemy base while defending their own. Featuring a wide range of heroes with unique abilities, Mobile Legends focuses on strategic teamwork, quick reflexes, and tactical play in a competitive environment.", R.drawable.mobile_legends),
+        Game(3,"CS:GO", "Counter-Strike: Global Offensive (CS:GO) is a tactical first-person shooter that pits teams of terrorists against counter-terrorists in objective-based game modes. With intense firefights, precision gunplay, and team strategy, CS:GO has become one of the most iconic esports titles, known for its high skill ceiling and competitive nature.", R.drawable.csgo),
+        Game(4,"PUBG","Player Unknown’s Battlegrounds (PUBG) is a battle royale game where up to 100 players parachute onto an island and scavenge for weapons and supplies to survive. The goal is to be the last person or team standing as the play area shrinks, forcing encounters and strategic combat. Known for its intense, large-scale firefights, PUBG revolutionized the battle royale genre.", R.drawable.pubg),
     )
 
     var achievements = mapOf(

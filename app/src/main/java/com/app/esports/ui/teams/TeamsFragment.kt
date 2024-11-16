@@ -7,22 +7,13 @@ import android.view.ContextThemeWrapper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.LinearLayout
-import android.widget.TextView
-import androidx.core.view.marginBottom
-import androidx.core.view.setPadding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.app.esports.Game
 import com.app.esports.R
 import com.app.esports.StaticData
 import com.app.esports.TeamDetails
 import com.app.esports.databinding.FragmentTeamsBinding
-import com.app.esports.ui.schedule.Schedule
-import com.app.esports.ui.schedule.ScheduleAdapter
-import com.app.esports.ui.schedule.ScheduleFragment
 import com.game.esports.GameAdapter
 import com.google.android.material.button.MaterialButton
 
@@ -60,10 +51,10 @@ class TeamsFragment : Fragment() {
         val teams = StaticData.teams[team]?.keys?.toList() ?: emptyList()
 
         for (game in StaticData.games) {
-            if (game.title == team) {
-                val gameName = game.title
-                val gameImageId = game.imageId
-                binding.imgGame.setBackgroundResource(game.imageId)
+            if (game.name == team) {
+                val gameName = game.name
+                val gameImageId = game.image_url
+                binding.imgGame.setBackgroundResource(game.image_url)
 
                 for (t in teams) {
                     val button = MaterialButton(ContextThemeWrapper(this.context, R.style.ButtonTeam)).apply {

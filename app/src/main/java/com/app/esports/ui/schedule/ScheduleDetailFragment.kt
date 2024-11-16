@@ -12,7 +12,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.app.esports.R
 import com.app.esports.databinding.FragmentScheduleDetailBinding
-import com.app.esports.databinding.FragmentWhoWeAreBinding
 
 class ScheduleDetailFragment : Fragment() {
 
@@ -48,7 +47,7 @@ class ScheduleDetailFragment : Fragment() {
         if (event != null) {
             binding.txtTitle.text = event.title
             binding.txtTeam.text = event.team
-            binding.img.setImageResource(event.imageId)
+            binding.img.setImageResource(event.image_url)
 
             val sharedPreferences: SharedPreferences = view.context.getSharedPreferences("SETTING", Context.MODE_PRIVATE)
             var isNotificationSet = sharedPreferences.getBoolean("NOTIFICATION_SCHEDULE${event.id}", false)

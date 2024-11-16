@@ -4,7 +4,7 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class User(val id: Int, var username: String, var email: String, var password: String) :
+data class User(val id: Int, var first_name: String, var last_name: String, var username: String, val password: String) :
     Parcelable {
     override fun toString() = username
 }

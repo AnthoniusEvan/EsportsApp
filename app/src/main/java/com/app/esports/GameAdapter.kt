@@ -5,16 +5,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.NavController
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.app.esports.StaticData
 import com.app.esports.AchievementActivity
 import com.app.esports.R
 import com.app.esports.databinding.GameCardBinding
-import com.app.esports.ui.schedule.ScheduleDetailFragment
-import com.app.esports.ui.schedule.ScheduleFragment.Companion.EVENT
 import com.app.esports.ui.teams.TeamsFragment
-import androidx.navigation.fragment.findNavController
 
 class GameAdapter(private val navController: NavController):RecyclerView.Adapter<GameAdapter.GameViewHolder>() {
     class GameViewHolder(val binding:GameCardBinding):RecyclerView.ViewHolder(binding.root)
@@ -24,11 +20,9 @@ class GameAdapter(private val navController: NavController):RecyclerView.Adapter
         return GameViewHolder(binding)
     }
     override fun onBindViewHolder(holder: GameViewHolder, position: Int){
-        holder.binding.txtGame.setText(StaticData.games[position].title)
-        holder.binding.txtDesc.setText(StaticData.games[position].desc)
-        holder.binding.imgGame.setImageResource(StaticData.games[position].imageId)
-
-        //holder.binding.ratingBar.rating = StaticData.games[position].rating.toFloat()
+        holder.binding.txtGame.setText(StaticData.games[position].name)
+        holder.binding.txtDesc.setText(StaticData.games[position].description)
+        holder.binding.imgGame.setImageResource(StaticData.games[position].image_url)
 
         holder.binding.btnTeams.setOnClickListener{
             val bundle = Bundle()
@@ -46,8 +40,8 @@ class GameAdapter(private val navController: NavController):RecyclerView.Adapter
             val context = holder.itemView.context
             val intent = Intent(context, AchievementActivity::class.java)
 
-            intent.putExtra(GAME, StaticData.games[position].title)
-            intent.putExtra(IMG, StaticData.games[position].imageId)
+            intent.putExtra(GAME, StaticData.games[position].name)
+            intent.putExtra(IMG, StaticData.games[position].image_url)
 
             context.startActivity(intent)
         }
