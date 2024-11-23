@@ -1,16 +1,24 @@
 package com.app.esports.ui
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.android.volley.Request
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
+import com.app.esports.Game
 import com.app.esports.R
 import com.app.esports.databinding.FragmentWhatweplayBinding
 import com.app.esports.databinding.FragmentWhoWeAreBinding
 import com.game.esports.GameAdapter
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import org.json.JSONObject
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
@@ -44,9 +52,26 @@ class WhatWePlayFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.recView.layoutManager = LinearLayoutManager(this.context)
-        binding.recView.setHasFixedSize(true)
-        binding.recView.adapter = GameAdapter(this.findNavController())
+        val q = Volley.newRequestQueue(activity)
+        val url = "https://ubaya.xyz/native/160922001/api/get_games.php"
+        val stringRequest = StringRequest(
+            Request.Method.POST, url,
+            {
+                Log.d("apiresult", it)
+                val obj = JSONObject(it)
+                if (obj.getString("result") == "OK"){
+                    val sType = object : TypeToken<List<Game>>() { }.type
+                    val games = Gson().fromJson<List<Game>>(obj.getString("data"), sType)
+                    binding.recView.layoutManager = LinearLayoutManager(this.context)
+                    binding.recView.setHasFixedSize(true)
+                    binding.recView.adapter = GameAdapter(games, this.findNavController())
+                }
+            },
+            {
+                Log.e("apiresult", it.message.toString())
+            },
+        )
+        q.add(stringRequest)
     }
     companion object {
         /**

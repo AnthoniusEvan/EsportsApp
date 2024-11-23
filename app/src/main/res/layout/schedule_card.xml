@@ -49,7 +49,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/poster_schedule_1"
+                    android:src="@color/primary_bg"
                     android:clickable="false"
                     android:focusable="false"/>
             </androidx.cardview.widget.CardView>

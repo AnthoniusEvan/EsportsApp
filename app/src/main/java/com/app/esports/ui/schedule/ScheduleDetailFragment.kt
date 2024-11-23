@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.app.esports.R
 import com.app.esports.databinding.FragmentScheduleDetailBinding
+import com.squareup.picasso.Picasso
 
 class ScheduleDetailFragment : Fragment() {
 
@@ -46,8 +47,12 @@ class ScheduleDetailFragment : Fragment() {
 
         if (event != null) {
             binding.txtTitle.text = event.title
-            binding.txtTeam.text = event.team
-            binding.img.setImageResource(event.image_url)
+            binding.txtTeam.text = event.team_name
+            val builder = Picasso.Builder(requireContext())
+            builder.listener { picasso, uri, exception ->
+                exception.printStackTrace()
+            }
+            builder.build().load(event.image_url).into(binding.img)
 
             val sharedPreferences: SharedPreferences = view.context.getSharedPreferences("SETTING", Context.MODE_PRIVATE)
             var isNotificationSet = sharedPreferences.getBoolean("NOTIFICATION_SCHEDULE${event.id}", false)

@@ -30,7 +30,7 @@ import com.app.esports.ui.schedule.ScheduleFragment
 
 class MainActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
-    public lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
     val fragments: ArrayList<Fragment> = ArrayList()
     private lateinit var active_user: User
 

@@ -13,7 +13,7 @@ import com.app.esports.ui.teams.Player
 import com.squareup.picasso.Picasso
 
 
-class TeamDetailsAdapter(private val players: Array<Player>):RecyclerView.Adapter<TeamDetailsAdapter.PlayerViewHolder>() {
+class TeamDetailsAdapter(private val players: List<Player>):RecyclerView.Adapter<TeamDetailsAdapter.PlayerViewHolder>() {
     class PlayerViewHolder(val binding:PlayerCardBinding):RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PlayerViewHolder {

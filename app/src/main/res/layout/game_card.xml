@@ -32,8 +32,7 @@
             <ImageView
                 android:id="@+id/imgGame"
                 android:layout_width="match_parent"
-                android:layout_height="220dp"
-                app:srcCompat="@drawable/valorant" />
+                android:layout_height="220dp" />
 
             <TextView
                 android:id="@+id/txtGame"

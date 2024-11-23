@@ -4,20 +4,20 @@ import com.app.esports.ui.schedule.Schedule
 import com.app.esports.ui.teams.Player
 
 object StaticData {
-    var schedules: Array<Schedule> = arrayOf(
-        Schedule(1,"20 SEP", "Regional Qualifier - Valorant", "Void Runners", R.drawable.poster_schedule_1),
-        Schedule(2,"25 SEP", "Elimination Round - CS:GO", "Nova Strike", R.drawable.poster_schedule_2),
-        Schedule(3,"9 OCT", "Semifinal - Mobile Legends", "Phantom Core", R.drawable.poster_schedule_3),
-        Schedule(4,"16 OCT", "National Qualifier - PUBG", "Solar Surge", R.drawable.poster_schedule_4),
-        Schedule(5,"25 SEP", "International Qualifier - LOL", "Shadow Wraiths", R.drawable.poster_schedule_5)
-    )
+//    var schedules: Array<Schedule> = arrayOf(
+//        Schedule(1,"20 SEP 2024", "Regional Qualifier - Valorant", "Void Runners", R.drawable.poster_schedule_1),
+//        Schedule(2,"25 SEP 2024", "Elimination Round - CS:GO", "Nova Strike", R.drawable.poster_schedule_2),
+//        Schedule(3,"9 OCT 2024", "Semifinal - Mobile Legends", "Phantom Core", R.drawable.poster_schedule_3),
+//        Schedule(4,"16 OCT 2024", "National Qualifier - PUBG", "Solar Surge", R.drawable.poster_schedule_4),
+//        Schedule(5,"25 SEP 2024", "International Qualifier - LOL", "Shadow Wraiths", R.drawable.poster_schedule_5)
+//    )
 
-    var games: Array<Game> = arrayOf(
-        Game(1,"Valorant", "Valorant is an online multiplayer computer game, produced by Riot Games. It is a first-person shooter game, consisting of two teams of five, where one team attacks and the other defends.", R.drawable.valorant),
-        Game(2,"Mobile Legends", "Mobile Legends: Bang Bang is a fast-paced multiplayer online battle arena (MOBA) game where players team up in 5v5 matches to destroy the enemy base while defending their own. Featuring a wide range of heroes with unique abilities, Mobile Legends focuses on strategic teamwork, quick reflexes, and tactical play in a competitive environment.", R.drawable.mobile_legends),
-        Game(3,"CS:GO", "Counter-Strike: Global Offensive (CS:GO) is a tactical first-person shooter that pits teams of terrorists against counter-terrorists in objective-based game modes. With intense firefights, precision gunplay, and team strategy, CS:GO has become one of the most iconic esports titles, known for its high skill ceiling and competitive nature.", R.drawable.csgo),
-        Game(4,"PUBG","Player Unknown’s Battlegrounds (PUBG) is a battle royale game where up to 100 players parachute onto an island and scavenge for weapons and supplies to survive. The goal is to be the last person or team standing as the play area shrinks, forcing encounters and strategic combat. Known for its intense, large-scale firefights, PUBG revolutionized the battle royale genre.", R.drawable.pubg),
-    )
+//    var games: Array<Game> = arrayOf(
+//        Game(1,"Valorant", "Valorant is an online multiplayer computer game, produced by Riot Games. It is a first-person shooter game, consisting of two teams of five, where one team attacks and the other defends.", R.drawable.valorant),
+//        Game(2,"Mobile Legends", "Mobile Legends: Bang Bang is a fast-paced multiplayer online battle arena (MOBA) game where players team up in 5v5 matches to destroy the enemy base while defending their own. Featuring a wide range of heroes with unique abilities, Mobile Legends focuses on strategic teamwork, quick reflexes, and tactical play in a competitive environment.", R.drawable.mobile_legends),
+//        Game(3,"CS:GO", "Counter-Strike: Global Offensive (CS:GO) is a tactical first-person shooter that pits teams of terrorists against counter-terrorists in objective-based game modes. With intense firefights, precision gunplay, and team strategy, CS:GO has become one of the most iconic esports titles, known for its high skill ceiling and competitive nature.", R.drawable.csgo),
+//        Game(4,"PUBG","Player Unknown’s Battlegrounds (PUBG) is a battle royale game where up to 100 players parachute onto an island and scavenge for weapons and supplies to survive. The goal is to be the last person or team standing as the play area shrinks, forcing encounters and strategic combat. Known for its intense, large-scale firefights, PUBG revolutionized the battle royale genre.", R.drawable.pubg),
+//    )
 
     var achievements = mapOf(
         "Valorant" to mapOf(
@@ -171,34 +171,34 @@ object StaticData {
         )
     )
 
-    var teams = mapOf(
-        "Valorant" to mapOf(
-            "Sentinels" to arrayOf(Player("TenZ", "Duelist"), Player("ShahZaM", "In-Game Leader"), Player("SicK", "Flex"), Player("dapr", "Sentinel"), Player("zombs", "Controller")),
-            "Team Liquid" to arrayOf(Player("ScreaM", "Duelist"), Player("Jamppi", "Operator"), Player("L1NK", "Controller"), Player("soulcas", "Flex"), Player("Kryptix", "Sentinel")),
-            "Fnatic" to arrayOf(Player("Boaster", "In-Game Leader"), Player("Derke", "Duelist"), Player("Doma", "Flex"), Player("Mistic", "Controller"), Player("Magnum", "Sentinel")),
-            "100 Thieves" to arrayOf(Player("Asuna", "Duelist"), Player("Hiko", "Sentinel"), Player("Ethan", "Flex"), Player("nitr0", "In-Game Leader"), Player("Steel", "Controller")),
-            "Vision Strikers" to arrayOf(Player("BuZz", "Duelist"), Player("stax", "In-Game Leader"), Player("Rb", "Flex"), Player("MaKo", "Controller"), Player("Zest", "Sentinel"))
-        ),
-        "Mobile Legends" to mapOf(
-            "Blacklist International" to arrayOf(Player("OhMyV33nus", "Support"), Player("Wise", "Jungler"), Player("Edward", "Offlane"), Player("OHEB", "Gold Lane"), Player("Hadji", "Mid Lane")),
-            "RRQ Hoshi" to arrayOf(Player("Alberttt", "Jungler"), Player("Lemon", "Offlane"), Player("Vyn", "Tank"), Player("R7", "Offlane"), Player("Skylar", "Gold Lane")),
-            "ONIC Esports" to arrayOf(Player("Drian", "Mid Lane"), Player("Butsss", "Offlane"), Player("Sanz", "Jungler"), Player("Kiboy", "Support"), Player("CW", "Gold Lane")),
-            "Evos Legends" to arrayOf(Player("Antimage", "Offlane"), Player("Ferxiic", "Jungler"), Player("Clover", "Gold Lane"), Player("Rexxy", "Mid Lane"), Player("Luminaire", "Support")),
-            "Bren Esports" to arrayOf(Player("KarlTzy", "Jungler"), Player("Flaptzy", "Offlane"), Player("Ribo", "Gold Lane"), Player("Lusty", "Tank"), Player("Pheww", "Support"))
-        ),
-        "CS:GO" to mapOf(
-            "NAVI" to arrayOf(Player("s1mple", "AWPer"), Player("electroNic", "Rifler"), Player("Boombl4", "In-Game Leader"), Player("Perfecto", "Support"), Player("B1T", "Rifler")),
-            "FaZe Clan" to arrayOf(Player("rain", "Rifler"), Player("karrigan", "In-Game Leader"), Player("broky", "AWPer"), Player("Twistzz", "Rifler"), Player("ropz", "Lurker")),
-            "Astralis" to arrayOf(Player("gla1ve", "In-Game Leader"), Player("Xyp9x", "Support"), Player("blameF", "Rifler"), Player("dev1ce", "AWPer"), Player("Buzz", "Rifler")),
-            "Vitality" to arrayOf(Player("ZywOo", "AWPer"), Player("apEX", "In-Game Leader"), Player("dupreeh", "Rifler"), Player("Magisk", "Rifler"), Player("Spinx", "Rifler")),
-            "Cloud9" to arrayOf(Player("HObbit", "Lurker"), Player("Ax1Le", "Rifler"), Player("sh1ro", "AWPer"), Player("nafany", "In-Game Leader"), Player("buster", "Rifler"))
-        ),
-        "PUBG" to mapOf(
-            "Team Liquid" to arrayOf(Player("Jeemzz", "Fragger"), Player("Ibiza", "Support"), Player("Sambty", "Scout"), Player("Clib", "In-Game Leader")),
-            "FaZe Clan" to arrayOf(Player("Fuzzface", "In-Game Leader"), Player("Aitzy", "Scout"), Player("Gustav", "Fragger"), Player("UBAH", "Support")),
-            "TSM" to arrayOf(Player("Vard", "Scout"), Player("MiracU", "Support"), Player("Fexx", "Fragger"), Player("iBiza", "In-Game Leader")),
-            "NAVI" to arrayOf(Player("Kemba", "Fragger"), Player("Mellman", "In-Game Leader"), Player("ALYO", "Support"), Player("xmpl", "Scout")),
-            "Gen.G" to arrayOf(Player("Pio", "Fragger"), Player("Inonix", "Support"), Player("Esther", "In-Game Leader"), Player("Asura", "Scout"))
-        ),
-    )
+//    var teams = mapOf(
+//        "Valorant" to mapOf(
+//            "Sentinels" to arrayOf(Player("TenZ", "Duelist"), Player("ShahZaM", "In-Game Leader"), Player("SicK", "Flex"), Player("dapr", "Sentinel"), Player("zombs", "Controller")),
+//            "Team Liquid" to arrayOf(Player("ScreaM", "Duelist"), Player("Jamppi", "Operator"), Player("L1NK", "Controller"), Player("soulcas", "Flex"), Player("Kryptix", "Sentinel")),
+//            "Fnatic" to arrayOf(Player("Boaster", "In-Game Leader"), Player("Derke", "Duelist"), Player("Doma", "Flex"), Player("Mistic", "Controller"), Player("Magnum", "Sentinel")),
+//            "100 Thieves" to arrayOf(Player("Asuna", "Duelist"), Player("Hiko", "Sentinel"), Player("Ethan", "Flex"), Player("nitr0", "In-Game Leader"), Player("Steel", "Controller")),
+//            "Vision Strikers" to arrayOf(Player("BuZz", "Duelist"), Player("stax", "In-Game Leader"), Player("Rb", "Flex"), Player("MaKo", "Controller"), Player("Zest", "Sentinel"))
+//        ),
+//        "Mobile Legends" to mapOf(
+//            "Blacklist International" to arrayOf(Player("OhMyV33nus", "Support"), Player("Wise", "Jungler"), Player("Edward", "Offlane"), Player("OHEB", "Gold Lane"), Player("Hadji", "Mid Lane")),
+//            "RRQ Hoshi" to arrayOf(Player("Alberttt", "Jungler"), Player("Lemon", "Offlane"), Player("Vyn", "Tank"), Player("R7", "Offlane"), Player("Skylar", "Gold Lane")),
+//            "ONIC Esports" to arrayOf(Player("Drian", "Mid Lane"), Player("Butsss", "Offlane"), Player("Sanz", "Jungler"), Player("Kiboy", "Support"), Player("CW", "Gold Lane")),
+//            "Evos Legends" to arrayOf(Player("Antimage", "Offlane"), Player("Ferxiic", "Jungler"), Player("Clover", "Gold Lane"), Player("Rexxy", "Mid Lane"), Player("Luminaire", "Support")),
+//            "Bren Esports" to arrayOf(Player("KarlTzy", "Jungler"), Player("Flaptzy", "Offlane"), Player("Ribo", "Gold Lane"), Player("Lusty", "Tank"), Player("Pheww", "Support"))
+//        ),
+//        "CS:GO" to mapOf(
+//            "NAVI" to arrayOf(Player("s1mple", "AWPer"), Player("electroNic", "Rifler"), Player("Boombl4", "In-Game Leader"), Player("Perfecto", "Support"), Player("B1T", "Rifler")),
+//            "FaZe Clan" to arrayOf(Player("rain", "Rifler"), Player("karrigan", "In-Game Leader"), Player("broky", "AWPer"), Player("Twistzz", "Rifler"), Player("ropz", "Lurker")),
+//            "Astralis" to arrayOf(Player("gla1ve", "In-Game Leader"), Player("Xyp9x", "Support"), Player("blameF", "Rifler"), Player("dev1ce", "AWPer"), Player("Buzz", "Rifler")),
+//            "Vitality" to arrayOf(Player("ZywOo", "AWPer"), Player("apEX", "In-Game Leader"), Player("dupreeh", "Rifler"), Player("Magisk", "Rifler"), Player("Spinx", "Rifler")),
+//            "Cloud9" to arrayOf(Player("HObbit", "Lurker"), Player("Ax1Le", "Rifler"), Player("sh1ro", "AWPer"), Player("nafany", "In-Game Leader"), Player("buster", "Rifler"))
+//        ),
+//        "PUBG" to mapOf(
+//            "Team Liquid" to arrayOf(Player("Jeemzz", "Fragger"), Player("Ibiza", "Support"), Player("Sambty", "Scout"), Player("Clib", "In-Game Leader")),
+//            "FaZe Clan" to arrayOf(Player("Fuzzface", "In-Game Leader"), Player("Aitzy", "Scout"), Player("Gustav", "Fragger"), Player("UBAH", "Support")),
+//            "TSM" to arrayOf(Player("Vard", "Scout"), Player("MiracU", "Support"), Player("Fexx", "Fragger"), Player("iBiza", "In-Game Leader")),
+//            "NAVI" to arrayOf(Player("Kemba", "Fragger"), Player("Mellman", "In-Game Leader"), Player("ALYO", "Support"), Player("xmpl", "Scout")),
+//            "Gen.G" to arrayOf(Player("Pio", "Fragger"), Player("Inonix", "Support"), Player("Esther", "In-Game Leader"), Player("Asura", "Scout"))
+//        ),
+//    )
 }
