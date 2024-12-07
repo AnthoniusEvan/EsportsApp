@@ -64,6 +64,8 @@
         <item name="colorSurfaceContainerHighest">@color/md_theme_surfaceContainerHighest</item>
     </style>
 
+
+
     <style name="Theme.EsportsApp.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
@@ -79,6 +81,5 @@
         <item name="itemBackground">@drawable/bottom_nav_item_background_selector</item>
         <item name="background">@drawable/bottom_nav_background</item>
         <item name="itemTextAppearance">"@font/montserrat"</item>
-
     </style>
 </resources>

@@ -38,12 +38,6 @@ class SignInFragment : Fragment() {
         arguments?.let {
             user = it.getParcelable(ARG_USER)
         }
-        if (rememberMe){
-            val username: String = sharedPreferences.getString(SAVED_USERNAME, "").toString()
-            val password: String = sharedPreferences.getString(SAVED_PASSWORD, "").toString()
-
-            authenticate(username, password, true)
-        }
     }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -108,7 +102,7 @@ class SignInFragment : Fragment() {
             txtPassword.setSelection(txtPassword.text.length)
         }
     }
-    private fun authenticate(username: String, password: String, skipChecks: Boolean=false){
+    private fun authenticate(username: String, password: String){
         val q = Volley.newRequestQueue(activity)
         val url = "https://ubaya.xyz/native/160922001/api/login.php"
         val stringRequest = object : StringRequest(
@@ -126,24 +120,22 @@ class SignInFragment : Fragment() {
 
                     Log.d("apiresult", active_user.toString())
 
-                    if (!skipChecks) {
-                        val sharedPreferences: SharedPreferences =
-                            requireContext().getSharedPreferences(
-                                "SETTING", Context.MODE_PRIVATE
-                            )
-                        val editor = sharedPreferences.edit()
+                    val sharedPreferences: SharedPreferences =
+                        requireContext().getSharedPreferences(
+                            "SETTING", Context.MODE_PRIVATE
+                        )
+                    val editor = sharedPreferences.edit()
 
-                        if (binding.cbRememberMe.isChecked) {
-                            editor.putBoolean(REMEMBER_ME, true)
-                            editor.putString(SAVED_USERNAME, binding.txtUsername.text.toString())
-                            editor.putString(SAVED_PASSWORD, binding.txtPassword.text.toString())
-                        } else {
-                            editor.putBoolean(REMEMBER_ME, false)
-                            editor.remove(SAVED_USERNAME)
-                            editor.remove(SAVED_PASSWORD)
-                        }
-                        editor.apply()
+                    if (binding.cbRememberMe.isChecked) {
+                        editor.putBoolean(REMEMBER_ME, true)
+                        editor.putString(SAVED_USERNAME, binding.txtUsername.text.toString())
+                        editor.putString(SAVED_PASSWORD, binding.txtPassword.text.toString())
+                    } else {
+                        editor.putBoolean(REMEMBER_ME, false)
+                        editor.remove(SAVED_USERNAME)
+                        editor.remove(SAVED_PASSWORD)
                     }
+                    editor.apply()
 
 
                     val intent = Intent(context, MainActivity::class.java)
@@ -167,12 +159,6 @@ class SignInFragment : Fragment() {
             }
         }
         q.add(stringRequest)
-//        for (user in MainActivity.userData) {
-//            if (user.username == username && user.password == password) {
-//                return true
-//            }
-//        }
-//        return false
     }
     companion object {
         val REMEMBER_ME = "remember_me"

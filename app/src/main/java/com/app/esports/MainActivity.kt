@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.view.Gravity
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -17,6 +18,7 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.app.esports.SignInFragment.Companion.REMEMBER_ME
@@ -102,21 +104,37 @@ class MainActivity : AppCompatActivity() {
                 true
             }
 
-            navController.addOnDestinationChangedListener { _, destination, _ ->
+            navView.setNavigationItemSelectedListener {
                 var showMain = true
-                when(destination.id){
+                when(it.itemId){
                     R.id.nav_whatweplay -> viewPager.setCurrentItem(0, true)
                     R.id.nav_schedule -> viewPager.setCurrentItem(1, true)
                     R.id.nav_whoweare -> viewPager.setCurrentItem(2, true)
 
+
+                    R.id.nav_signout ->{
+                        val sharedPreferences: SharedPreferences = applicationContext.getSharedPreferences("SETTING", Context.MODE_PRIVATE)
+                        val editor = sharedPreferences.edit()
+                        editor.putBoolean(SignInFragment.REMEMBER_ME, false)
+                        editor.remove(SignInFragment.SAVED_USERNAME)
+                        editor.remove(SignInFragment.SAVED_PASSWORD)
+                        editor.apply()
+
+                        val intent = Intent(applicationContext, AuthActivity::class.java)
+                        startActivity(intent)
+
+                        finish()
+                    }
                     else -> {
+                        navController.navigate(it.itemId)
                         showMain = false
                     }
                 }
                 toggleMainAndAdditionalFragments(showMain)
+
+                drawerLayout.closeDrawer(GravityCompat.START)
+                true
             }
-
-
         }
         toggleMainAndAdditionalFragments(true)
     }

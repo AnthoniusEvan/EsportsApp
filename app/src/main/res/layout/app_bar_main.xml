@@ -16,6 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/primary_red"
+            app:titleTextAppearance="@style/ActionBarTitleTextAppearance"
             app:popupTheme="@style/Theme.EsportsApp.PopupOverlay" />
 
     </com.google.android.material.appbar.AppBarLayout>
