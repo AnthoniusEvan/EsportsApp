@@ -46,4 +46,9 @@
         android:name="com.app.esports.ui.ProposalFragment"
         android:label="PROPOSAL TEAM"
         tools:layout="@layout/fragment_proposal" />
+    <fragment
+        android:id="@+id/nav_apply_team"
+        android:name="com.app.esports.ApplyTeamFragment"
+        android:label="Apply Team"
+        tools:layout="@layout/fragment_apply_team" />
 </navigation>

@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
@@ -24,6 +25,7 @@ class ProposalFragment : Fragment() {
     private var _binding: FragmentProposalBinding? = null
     private val binding get() = _binding!!
     private var userId: Int? = null
+    private var selectedButton: View? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -35,6 +37,9 @@ class ProposalFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.fabAdd.setOnClickListener {
+            findNavController().navigate(R.id.nav_apply_team)
+        }
         binding.allButton.setOnClickListener { loadProposals("All") }
         binding.waitingButton.setOnClickListener { loadProposals("Waiting") }
         binding.grantedButton.setOnClickListener { loadProposals("Granted") }

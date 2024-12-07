@@ -26,48 +26,97 @@
             android:orientation="horizontal"
             android:gravity="center">
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/all_button"
+                style="@style/Widget.Material3.Button"
                 android:layout_width="wrap_content"
-                android:layout_height="48dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
-                android:fontFamily="@font/montserrat_bold"
+                android:layout_weight="1"
+                android:checkable="true"
+                android:fontFamily="@font/montserrat_semibold"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
                 android:text="All"
-                android:textAllCaps="false"
-                android:textColor="#FFFFFF"
-                android:textStyle="bold" />
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textColorLink="@color/primary_bg"
+                android:textSize="15dp"
+                app:backgroundTint="@color/toggle_button_selector"
+                app:cornerRadius="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/waiting_button"
+                style="@style/Widget.Material3.Button"
                 android:layout_width="wrap_content"
-                android:layout_height="48dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
-                android:fontFamily="@font/montserrat_bold"
+                android:layout_weight="1"
+                android:checkable="true"
+                android:fontFamily="@font/montserrat_semibold"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
                 android:text="Waiting"
-                android:textAllCaps="false"
-                android:textColor="#D32F2F"
-                android:textStyle="bold" />
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textColorLink="@color/primary_bg"
+                android:textSize="15dp"
+                app:backgroundTint="@color/toggle_button_selector"
+                app:cornerRadius="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/granted_button"
+                style="@style/Widget.Material3.Button"
                 android:layout_width="wrap_content"
-                android:layout_height="48dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
-                android:fontFamily="@font/montserrat_bold"
+                android:layout_weight="1"
+                android:checkable="true"
+                android:fontFamily="@font/montserrat_semibold"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
                 android:text="Granted"
-                android:textAllCaps="false"
-                android:textColor="#D32F2F"
-                android:textStyle="bold" />
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textColorLink="@color/primary_bg"
+                android:textSize="15dp"
+                app:backgroundTint="@color/toggle_button_selector"
+                app:cornerRadius="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/declined_button"
+                style="@style/Widget.Material3.Button"
                 android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:fontFamily="@font/montserrat_bold"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                android:checkable="true"
+                android:fontFamily="@font/montserrat_semibold"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
                 android:text="Declined"
-                android:textAllCaps="false"
-                android:textColor="#D32F2F"
-                android:textStyle="bold" />
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textColorLink="@color/primary_bg"
+                android:textSize="15dp"
+                app:backgroundTint="@color/toggle_button_selector"
+                app:cornerRadius="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </LinearLayout>
     </HorizontalScrollView>
