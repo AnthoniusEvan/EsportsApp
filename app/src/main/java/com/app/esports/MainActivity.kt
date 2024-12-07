@@ -25,6 +25,7 @@ import com.app.esports.SignInFragment.Companion.REMEMBER_ME
 import com.app.esports.SignInFragment.Companion.SAVED_PASSWORD
 import com.app.esports.SignInFragment.Companion.SAVED_USERNAME
 import com.app.esports.databinding.ActivityMainBinding
+import com.app.esports.ui.ProposalFragment
 import com.app.esports.ui.WhatWePlayFragment
 import com.app.esports.ui.WhoWeAreFragment
 import com.app.esports.ui.auth.AuthActivity
@@ -180,6 +181,7 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
+
 
     companion object{
         val USER = "USER"

@@ -44,4 +44,11 @@
         <item name="android:textColor">@android:color/white</item> <!-- Optional: Set title color -->
         <item name="android:textSize">20sp</item> <!-- Optional: Adjust size -->
     </style>
+
+    <!-- Custom FloatingActionButton Style -->
+    <style name="CustomFABStyle" parent="Widget.MaterialComponents.FloatingActionButton">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">40dp</item>
+    </style>
+
 </resources>

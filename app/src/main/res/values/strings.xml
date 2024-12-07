@@ -19,4 +19,5 @@
 
     <string name="achievement">ACHIEVEMENTS</string>
     <string name="team_detail">TEAM DETAILS</string>
+    <string name="status_indicator" />
 </resources>
