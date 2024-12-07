@@ -32,9 +32,9 @@ import com.app.esports.ui.schedule.ScheduleFragment
 
 class MainActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
-    private lateinit var binding: ActivityMainBinding
+    public lateinit var binding: ActivityMainBinding
     val fragments: ArrayList<Fragment> = ArrayList()
-    private lateinit var active_user: User
+    public lateinit var active_user: User
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
