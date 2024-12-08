@@ -16,6 +16,7 @@ import com.app.esports.R
 import com.app.esports.databinding.FragmentProposalBinding
 import com.app.esports.ui.proposal.ProposalAdapter
 import com.app.esports.ui.proposal.proposal
+import com.google.android.material.button.MaterialButton
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import org.json.JSONObject
@@ -34,18 +35,55 @@ class ProposalFragment : Fragment() {
         userId = (activity as? MainActivity)?.active_user?.id
         return binding.root
     }
-
+    private var selectedPosition = 0
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.fabAdd.setOnClickListener {
             findNavController().navigate(R.id.nav_apply_team)
         }
-        binding.allButton.setOnClickListener { loadProposals("All") }
-        binding.waitingButton.setOnClickListener { loadProposals("Waiting") }
-        binding.grantedButton.setOnClickListener { loadProposals("Granted") }
-        binding.declinedButton.setOnClickListener { loadProposals("Declined") }
+        binding.allButton.setOnClickListener {
+            val filters = arrayOf(it, binding.waitingButton, binding.grantedButton, binding.declinedButton)
+            for (filter in filters){
+                if (filter != it){
+                    (filter as MaterialButton).isChecked = false
+                }
+                else (filter as MaterialButton).isChecked = true
+            }
+            loadProposals("All")
+        }
+        binding.waitingButton.setOnClickListener {
+            val filters = arrayOf(it, binding.allButton, binding.grantedButton, binding.declinedButton)
+            for (filter in filters){
+                if (filter != it){
+                    (filter as MaterialButton).isChecked = false
+                }
+                else (filter as MaterialButton).isChecked = true
+            }
+            loadProposals("Waiting")
+        }
+        binding.grantedButton.setOnClickListener {
+            val filters = arrayOf(it, binding.waitingButton, binding.allButton, binding.declinedButton)
+            for (filter in filters){
+                if (filter != it){
+                    (filter as MaterialButton).isChecked = false
+                }
+                else (filter as MaterialButton).isChecked = true
+            }
+            loadProposals("Granted")
+        }
+        binding.declinedButton.setOnClickListener {
+            val filters = arrayOf(it, binding.waitingButton, binding.grantedButton, binding.allButton)
+            for (filter in filters){
+                if (filter != it){
+                    (filter as MaterialButton).isChecked = false
+                }
+                else (filter as MaterialButton).isChecked = true
+            }
+            loadProposals("Declined")
+        }
 
         loadProposals("All")
+        binding.allButton.isChecked=true;
     }
 
     private fun loadProposals(status: String) {

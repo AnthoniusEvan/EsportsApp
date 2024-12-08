@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.app.esports.MainActivity
 import com.app.esports.R
 import com.app.esports.databinding.FragmentHomeBinding
 
@@ -39,13 +40,29 @@ class HomeFragment : Fragment() {
         // Access the button in the included layout using ViewBinding
         binding.frame1.setOnClickListener{
             findNavController().navigate(R.id.nav_whatweplay)
+            val activity:MainActivity = activity as MainActivity
+            activity.binding.appBarMain.main.viewPager.setCurrentItem(0, true)
+
+            toggleMainAndAdditionalFragments(activity,true)
         }
         binding.frame2.setOnClickListener {
             findNavController().navigate(R.id.nav_whoweare)
+            val activity:MainActivity = activity as MainActivity
+            activity.binding.appBarMain.main.viewPager.setCurrentItem(2, true)
+
+            toggleMainAndAdditionalFragments(activity,true)
         }
         binding.frame3.setOnClickListener {
             findNavController().navigate(R.id.nav_schedule)
+            val activity:MainActivity = activity as MainActivity
+            activity.binding.appBarMain.main.viewPager.setCurrentItem(1, true)
+
+            toggleMainAndAdditionalFragments(activity,true)
         }
+    }
+    private fun toggleMainAndAdditionalFragments(activity: MainActivity, showMain: Boolean) {
+        activity.binding.appBarMain.main.viewPager.visibility = if (showMain) View.VISIBLE else View.GONE
+        activity.binding.appBarMain.main.fragmentContainer.visibility = if (showMain) View.GONE else View.VISIBLE
     }
 
     override fun onDestroyView() {

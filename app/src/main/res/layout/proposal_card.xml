@@ -26,45 +26,59 @@
                 android:id="@+id/proposal_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
                 android:ellipsize="end"
+                android:fontFamily="@font/montserrat_bold"
                 android:singleLine="true"
                 android:text="League of Legends"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="8dp" />
+                android:textStyle="bold" />
 
             <!-- Descriptions (Initially Hidden) -->
             <LinearLayout
                 android:id="@+id/details_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:orientation="vertical"
-                android:visibility="gone"
-                android:layout_marginTop="8dp">
+                android:visibility="gone">
 
                 <TextView
                     android:id="@+id/applyDate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:fontFamily="@font/montserrat_medium"
                     android:text="Apply Date: DD/MM/YYYY"
                     android:textColor="#FFFFFF"
-                    android:textSize="14sp"
-                    android:layout_marginBottom="4dp" />
+                    android:textSize="14sp" />
 
                 <TextView
-                    android:id="@+id/teamName"
+                    android:id="@+id/gameName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Team Name:"
+                    android:layout_marginBottom="4dp"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:text="Game:"
                     android:textColor="#FFFFFF"
-                    android:textSize="14sp"
-                    android:layout_marginBottom="4dp" />
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/username"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:text="Username:"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_medium"
                     android:text="Description: Description to apply for team 2"
                     android:textColor="#FFFFFF"
                     android:textSize="14sp" />
@@ -78,10 +92,27 @@
                 android:gravity="end"
                 android:orientation="horizontal">
 
+                <Button
+                    android:id="@+id/btnShow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:backgroundTint="@color/white"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:text="Show Details"
+                    android:textColor="@color/primary_red"
+                    app:rippleColor="@color/primary_red" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
                 <ImageView
                     android:id="@+id/status_indicator"
                     android:layout_width="12dp"
                     android:layout_height="12dp"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginEnd="8dp"
                     android:src="@drawable/ic_indication_prop" />
 
@@ -89,6 +120,7 @@
                     android:id="@+id/proposal_status"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_semibold"
                     android:text="Waiting"
                     android:textColor="#FFFFFF"
                     android:textSize="14sp" />

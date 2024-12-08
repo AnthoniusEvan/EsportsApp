@@ -22,10 +22,11 @@ class ProposalAdapter(private val proposals: List<proposal>) : RecyclerView.Adap
 
     override fun onBindViewHolder(holder: ProposalViewHolder, position: Int) {
         val proposal = proposals[position]
-        holder.binding.proposalTitle.text = proposal.game_name
+        holder.binding.proposalTitle.text = "${proposal.name}"
         holder.binding.proposalStatus.text = proposal.status
         holder.binding.applyDate.text = "Apply Date: ${proposal.created_at}"
-        holder.binding.teamName.text = "Team Name: ${proposal.name}"
+        holder.binding.gameName.text = "Game: ${proposal.game_name}"
+        holder.binding.username.text = "Username: ${proposal.username}"
         holder.binding.description.text = "Description: ${proposal.description}"
 
         val context = holder.itemView.context
@@ -49,10 +50,16 @@ class ProposalAdapter(private val proposals: List<proposal>) : RecyclerView.Adap
             if (expandedItems.contains(proposal.id)) {
                 expandedItems.remove(proposal.id)
                 holder.binding.detailsContainer.visibility = View.GONE
+                holder.binding.btnShow.setText("Show Details")
             } else {
                 expandedItems.add(proposal.id)
                 holder.binding.detailsContainer.visibility = View.VISIBLE
+                holder.binding.btnShow.setText("Hide Details")
             }
+        }
+
+        holder.binding.btnShow.setOnClickListener{
+            holder.itemView.performClick()
         }
     }
 

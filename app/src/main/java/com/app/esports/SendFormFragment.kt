@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.Request
@@ -49,6 +50,13 @@ class SendFormFragment : DialogFragment() {
         dialog?.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         binding.tvGameTeam.setText("Apply to ${team?.name}")
         binding.btnSend.setOnClickListener{
+            val checkDesc = binding.etDesc.text?.isEmpty()?:true
+
+            if (checkDesc){
+                Toast.makeText(requireContext(), "Please provide a valid reason!", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
             val q = Volley.newRequestQueue(requireContext())
             val url = "https://ubaya.xyz/native/160922001/api/send_proposal.php"
             val stringRequest = object : StringRequest(
