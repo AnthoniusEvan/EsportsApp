@@ -15,6 +15,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.graphics.drawable.toDrawable
 import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
@@ -40,6 +41,8 @@ class AchievementActivity : AppCompatActivity() {
         val img = intent.getStringExtra(GameAdapter.IMG)
 
         binding.heading.setText(game)
+
+        supportActionBar?.setTitle("Achievement");
 
         val builder = Picasso.Builder(this)
         builder.listener { picasso, uri, exception ->
@@ -110,7 +113,11 @@ class AchievementActivity : AppCompatActivity() {
     }
 
     fun loadAchievements(achievements: List<Achievement>){
-        val orderedList = achievements.mapIndexed { index, achievement ->
+        val visibleAchievements = achievements.filter {
+            (index) -> (index<achievements.size && achievements[index-1].is_visible == 1)
+        }
+
+        val orderedList = visibleAchievements.mapIndexed { index, achievement ->
             "${index+1}. ${achievement.achievement}"
         }?.joinToString("\n")
 

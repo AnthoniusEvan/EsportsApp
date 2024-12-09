@@ -2,5 +2,5 @@ package com.app.esports
 
 import java.io.Serializable
 
-data class Achievement (val id:Int, val achievement:String, val game_id:Int, val year:String)  :
+data class Achievement (val id:Int, val achievement:String, val game_id:Int, val year:String, val is_visible:Int)  :
     Serializable
