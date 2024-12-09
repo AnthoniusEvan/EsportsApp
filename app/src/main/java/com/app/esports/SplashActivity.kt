@@ -61,7 +61,7 @@ class SplashActivity : AppCompatActivity() {
 //                    val active_user:User = Gson().fromJson(data.toString(), sType) as User
 
                     val userObj = data.getJSONObject(0)
-                    val active_user: User = User(userObj.getInt("id"), userObj.getString("first_name"), userObj.getString("last_name"), userObj.getString("username"), userObj.getString("password"))
+                    val active_user: User = User(userObj.getInt("id"), userObj.getString("first_name"), userObj.getString("last_name"), userObj.getString("username"), userObj.getString("password"), userObj.getString("role"))
 
                     Log.d("apiresult", active_user.toString())
 

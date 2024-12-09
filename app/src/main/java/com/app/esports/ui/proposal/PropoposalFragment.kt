@@ -82,14 +82,35 @@ class ProposalFragment : Fragment() {
             loadProposals("Declined")
         }
 
-        loadProposals("All")
-        binding.allButton.isChecked=true;
+        if ((activity as MainActivity).active_user.role == "Admin") {
+            binding.fabAdd.visibility = View.GONE
+            val filters = arrayOf(binding.allButton, binding.waitingButton, binding.grantedButton, binding.declinedButton)
+            for (filter in filters){
+                if (filter != binding.waitingButton){
+                    (filter as MaterialButton).isChecked = false
+                }
+                else (filter as MaterialButton).isChecked = true
+            }
+            loadProposals("Waiting")
+        }
+        else {
+            binding.allButton.isChecked=true;
+            loadProposals("All")
+        }
     }
 
-    private fun loadProposals(status: String) {
-        val queue = Volley.newRequestQueue(requireContext())
-        val url = "https://ubaya.xyz/native/160922001/api/get_proposal.php"
+    public fun loadProposals(status: String) {
+        var showAll = false;
+        if ((activity as MainActivity).active_user.role == "Admin"){
+            showAll = true;
+        }
 
+        val queue = Volley.newRequestQueue(requireContext())
+        var url = "https://ubaya.xyz/native/160922001/api/get_proposal.php"
+
+        if (showAll){
+            url = "https://ubaya.xyz/native/160922001/api/get_all_proposal.php"
+        }
         val stringRequest = object : StringRequest(Request.Method.POST, url,
             { response ->
                 Log.d("apiresult", response)
@@ -100,7 +121,7 @@ class ProposalFragment : Fragment() {
 
                     binding.propCard.layoutManager = LinearLayoutManager(context)
                     binding.propCard.setHasFixedSize(true)
-                    binding.propCard.adapter = ProposalAdapter(proposals)
+                    binding.propCard.adapter = ProposalAdapter(proposals, this)
                 } else {
                     Log.e("apiresult", "No proposals found!")
                 }
@@ -110,7 +131,8 @@ class ProposalFragment : Fragment() {
             }
         ) {
             override fun getParams(): MutableMap<String, String> {
-                return hashMapOf("status" to status, "user_id" to userId.toString())
+                if (showAll) return hashMapOf("status" to status)
+                else return hashMapOf("status" to status, "user_id" to userId.toString())
             }
         }
 
