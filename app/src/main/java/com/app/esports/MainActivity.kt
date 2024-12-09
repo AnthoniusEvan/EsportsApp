@@ -141,7 +141,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private fun toggleMainAndAdditionalFragments(showMain: Boolean) {
+    public fun toggleMainAndAdditionalFragments(showMain: Boolean) {
         binding.appBarMain.main.viewPager.visibility = if (showMain) View.VISIBLE else View.GONE
         binding.appBarMain.main.fragmentContainer.visibility = if (showMain) View.GONE else View.VISIBLE
     }

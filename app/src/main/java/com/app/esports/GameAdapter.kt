@@ -17,6 +17,7 @@ import com.android.volley.toolbox.Volley
 import com.app.esports.StaticData
 import com.app.esports.AchievementActivity
 import com.app.esports.Game
+import com.app.esports.MainActivity
 import com.app.esports.R
 import com.app.esports.databinding.GameCardBinding
 import com.app.esports.ui.schedule.Schedule
@@ -65,6 +66,7 @@ class GameAdapter(private val games: List<Game>, private val navController: NavC
             targetFragment.arguments = bundle
 
             navController.navigate(R.id.nav_teams, bundle)
+            (navController.context as MainActivity).toggleMainAndAdditionalFragments(false)
         }
 
         holder.binding.btnAchievement.setOnClickListener{

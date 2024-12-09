@@ -23,6 +23,7 @@ class ScheduleAdapter(private val schedules:List<Schedule>, private val listener
                 val position = adapterPosition
                 if (position != RecyclerView.NO_POSITION) {
                     listener.onItemClick(position)
+
                 }
             }
         }

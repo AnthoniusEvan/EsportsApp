@@ -16,6 +16,7 @@ import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.app.esports.Achievement
+import com.app.esports.MainActivity
 import com.app.esports.R
 import com.app.esports.StaticData
 import com.app.esports.databinding.FragmentScheduleBinding
@@ -82,6 +83,7 @@ class ScheduleFragment : Fragment(), ScheduleAdapter.OnItemClickListener {
         targetFragment.arguments = bundle
 
         findNavController().navigate(R.id.nav_schedule_detail, bundle)
+        (activity as MainActivity).toggleMainAndAdditionalFragments(false)
     }
 
     companion object{
